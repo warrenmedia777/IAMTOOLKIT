@@ -4268,7 +4268,7 @@ p { margin-bottom: 16px; line-height: 1.75; }
         <!-- PRINT / CLEAR BUTTONS -->
         <div style="display:flex; gap:12px; justify-content:flex-end; margin-top:20px;">
           <button onclick="const s=document.getElementById('teacher-think-sheet');s.querySelectorAll('input[type=text],textarea').forEach(i=>i.value='');s.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);" style="background:white; border:1px solid var(--rule); color:var(--ink-mid); font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">Clear</button>
-          <button onclick="window.print()" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Think Sheet</button>
+          <button onclick="printThinkSheet('teacher-think-sheet','Teacher Think Sheet — I AM Caring and Curious')" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Think Sheet</button>
         </div>
 
       </div>
@@ -4436,7 +4436,7 @@ p { margin-bottom: 16px; line-height: 1.75; }
       <!-- PRINT / CLEAR BUTTONS -->
       <div style="display:flex; gap:12px; justify-content:flex-end; margin-bottom:20px;">
         <button onclick="const s=document.getElementById('creator-think-sheet');s.querySelectorAll('input[type=text],textarea').forEach(i=>i.value='');s.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);" style="background:white; border:1px solid var(--rule); color:var(--ink-mid); font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">Clear</button>
-        <button onclick="window.print()" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Thinking Document</button>
+        <button onclick="printThinkSheet('creator-think-sheet','Student Thinking Document — I AM Caring and Curious')" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Thinking Document</button>
       </div>
 
       <!-- Creator Check -->
@@ -5327,6 +5327,54 @@ p { margin-bottom: 16px; line-height: 1.75; }
 </footer>
 
 <script>
+  // Prints only the specified section (e.g. a Think Sheet) instead of the entire page.
+  // Carries over whatever the user has typed or checked, and strips the Clear/Print
+  // buttons themselves out of the printed copy.
+  function printThinkSheet(sectionId, docTitle) {
+    var original = document.getElementById(sectionId);
+    if (!original) return;
+    var clone = original.cloneNode(true);
+
+    var origFields = original.querySelectorAll('input, textarea');
+    var cloneFields = clone.querySelectorAll('input, textarea');
+    origFields.forEach(function(orig, i) {
+      var c = cloneFields[i];
+      if (!c) return;
+      if (orig.type === 'checkbox' || orig.type === 'radio') {
+        if (orig.checked) { c.setAttribute('checked', 'checked'); }
+        else { c.removeAttribute('checked'); }
+      } else if (orig.tagName.toLowerCase() === 'textarea') {
+        c.textContent = orig.value;
+      } else {
+        c.setAttribute('value', orig.value);
+      }
+    });
+
+    clone.querySelectorAll('button').forEach(function(b) { b.remove(); });
+
+    var styleTag = document.querySelector('style');
+    var styles = styleTag ? styleTag.outerHTML : '';
+    var fontLinks = '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">';
+
+    var win = window.open('', '_blank');
+    if (!win) { window.print(); return; }
+    win.document.open();
+    win.document.write(
+      '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
+      '<title>' + docTitle + '</title>' +
+      fontLinks + styles +
+      '</head><body style="background:white; padding:32px;">' +
+      clone.outerHTML +
+      '</body></html>'
+    );
+    win.document.close();
+
+    setTimeout(function() {
+      win.focus();
+      win.print();
+    }, 400);
+  }
+
   (function() {
     var toggle = document.getElementById('navToggle');
     var links = document.getElementById('navLinks');
