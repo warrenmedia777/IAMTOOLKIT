@@ -1984,6 +1984,95 @@ p { margin-bottom: 16px; line-height: 1.75; }
 .hero-inner > *:nth-child(3) { animation-delay: 0.3s; }
 .hero-inner > *:nth-child(4) { animation-delay: 0.4s; }
 .hero-inner > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* ============================================
+   PRINT — SINGLE SHEET ONLY, ONE PAGE
+   "Print Think Sheet" / "Print Thinking Document" call
+   printOnly(id) in JS, which moves the target element
+   to be a direct child of <body> for the print, then
+   restores it afterward. That actually removes the rest
+   of the document from the flow (not just hides it),
+   so printing doesn't paginate through the whole toolkit.
+   ============================================ */
+@media print {
+  body.printing-isolated > *:not(script):not(style) {
+    display: none !important;
+  }
+  body.printing-isolated > #teacher-think-sheet,
+  body.printing-isolated > #creator-think-sheet {
+    display: block !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Compact print layout for the Teacher Think Sheet:
+     drop the banner header, tighten every block so the
+     whole form fits on a single printed page. */
+  body.printing-isolated #teacher-think-sheet.ts-print-compact > .ts-header {
+    display: none !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact > .ts-content {
+    padding: 6px 10px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-block {
+    margin-bottom: 7px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-bar {
+    padding: 5px 12px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-bar-light {
+    margin-bottom: 6px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-focuscol {
+    padding: 8px 10px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-focuscol label {
+    margin-bottom: 5px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-textarea {
+    height: 18px !important;
+    min-height: 0 !important;
+    padding: 3px 8px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact p,
+  body.printing-isolated #teacher-think-sheet.ts-print-compact span,
+  body.printing-isolated #teacher-think-sheet.ts-print-compact label {
+    font-size: 0.72rem !important;
+    line-height: 1.25 !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact [style*="margin-bottom:16px"] {
+    margin-bottom: 6px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact [style*="margin-bottom:14px"] {
+    margin-bottom: 4px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact [style*="padding:10px 20px"] {
+    padding: 3px 10px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact [style*="padding:18px 20px"],
+  body.printing-isolated #teacher-think-sheet.ts-print-compact [style*="padding:18px 24px"] {
+    padding: 8px 12px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact [style*="padding:20px 24px"] {
+    padding: 6px 10px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact [style*="gap:16px"],
+  body.printing-isolated #teacher-think-sheet.ts-print-compact [style*="gap:20px"],
+  body.printing-isolated #teacher-think-sheet.ts-print-compact [style*="gap:12px"] {
+    gap: 6px !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-hide-print {
+    display: none !important;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-focuscol > p:first-child {
+    font-size: 0.58rem !important;
+    padding: 4px 6px !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Buttons never belong in printed output, single-sheet or whole-page */
+  .no-print, .no-print * { display: none !important; visibility: hidden !important; }
+}
 </style>
 </head>
 <body>
@@ -4077,7 +4166,7 @@ p { margin-bottom: 16px; line-height: 1.75; }
     <div id="teacher-think-sheet" style="background:white; border-radius:var(--radius-md); box-shadow:var(--shadow-md); margin-bottom:48px; overflow:hidden;">
 
       <!-- HEADER -->
-      <div style="background:var(--navy); padding:28px 36px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+      <div class="ts-header" style="background:var(--navy); padding:28px 36px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
         <div style="display:flex; align-items:center; gap:20px;">
           <div style="font-family:var(--font-display); font-size:2rem; font-weight:900; letter-spacing:-0.02em;">
             <span style="color:#93c5fd;">I</span><span style="color:white;"> </span><span style="color:#6ee7b7;">A</span><span style="color:#fcd34d;">M</span>
@@ -4093,85 +4182,85 @@ p { margin-bottom: 16px; line-height: 1.75; }
         </div>
       </div>
 
-      <div style="padding:32px 36px;">
+      <div class="ts-content" style="padding:32px 36px;">
 
         <!-- STEP 0 -->
-        <div style="background:#f0f4ff; border-radius:var(--radius-sm); padding:20px 24px; margin-bottom:24px;">
-          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+        <div class="ts-block" style="background:#f0f4ff; border-radius:var(--radius-sm); padding:20px 24px; margin-bottom:24px;">
+          <div class="ts-bar-light" style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <span style="background:var(--navy); color:white; font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px;">Step 0</span>
             <span style="font-size:1rem; font-weight:700; color:var(--navy);">Start Here — Your Existing Lesson</span>
           </div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
             <div>
               <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">Lesson / Unit Topic or Focus:</label>
-              <textarea rows="2" placeholder="What are you teaching?" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
+              <textarea rows="2" placeholder="What are you teaching?" class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
             </div>
             <div>
               <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">What are students already doing?</label>
-              <textarea rows="2" placeholder="Current activity or task..." style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
+              <textarea rows="2" placeholder="Current activity or task..." class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
             </div>
           </div>
         </div>
 
         <!-- STEP 1 -->
-        <div style="border:1px solid var(--rule); border-radius:var(--radius-sm); margin-bottom:24px; overflow:hidden;">
-          <div style="background:var(--navy); padding:14px 24px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div class="ts-block" style="border:1px solid var(--rule); border-radius:var(--radius-sm); margin-bottom:24px; overflow:hidden;">
+          <div class="ts-bar" style="background:var(--navy); padding:14px 24px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
             <span style="background:white; color:var(--navy); font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px;">Step 1</span>
             <span style="font-size:1rem; font-weight:700; color:white;">Choose Your Focus</span>
             <span style="font-size:0.85rem; color:rgba(255,255,255,0.55); font-style:italic;">(Select 1–3 · You are not expected to use all 9)</span>
           </div>
           <div style="display:grid; grid-template-columns:1fr 1fr 1fr;">
-            <div style="padding:20px 24px; border-right:1px solid var(--rule);">
-              <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:white; background:var(--blue); padding:6px 12px; border-radius:4px; margin-bottom:16px;">Layer 1 — Converged Literacies</p>
+            <div class="ts-focuscol" style="padding:20px 24px; border-right:1px solid var(--rule);">
+              <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:white; background:var(--blue); padding:6px 12px; border-radius:4px; margin-bottom:16px;">Layer 1 — Converging Literacies</p>
               <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
                 <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">AUTHORITY</p><p style="font-size:0.78rem; color:var(--ink-light); font-style:italic;">Converged Literacies</p><p style="font-size:0.82rem; color:var(--ink-mid);">Verify what's true</p></div>
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">INFORMATION</p><p class="ts-hide-print" style="font-size:0.78rem; color:var(--ink-light); font-style:italic;">Converging Literacies</p><p style="font-size:0.82rem; color:var(--ink-mid);">Verify what's true</p></div>
               </label>
               <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
                 <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">INTENT</p><p style="font-size:0.78rem; color:var(--ink-light); font-style:italic;">Converged Literacies</p><p style="font-size:0.82rem; color:var(--ink-mid);">Analyze why it was made</p></div>
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">MEDIA</p><p class="ts-hide-print" style="font-size:0.78rem; color:var(--ink-light); font-style:italic;">Converging Literacies</p><p style="font-size:0.82rem; color:var(--ink-mid);">Analyze why it was made</p></div>
               </label>
               <label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer;">
                 <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">MACHINE</p><p style="font-size:0.78rem; color:var(--ink-light); font-style:italic;">Converged Literacies</p><p style="font-size:0.82rem; color:var(--ink-mid);">Interact with or evaluate AI</p></div>
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">AI</p><p class="ts-hide-print" style="font-size:0.78rem; color:var(--ink-light); font-style:italic;">Converging Literacies</p><p style="font-size:0.82rem; color:var(--ink-mid);">Interact with or evaluate AI</p></div>
               </label>
             </div>
-            <div style="padding:20px 24px; border-right:1px solid var(--rule);">
+            <div class="ts-focuscol" style="padding:20px 24px; border-right:1px solid var(--rule);">
               <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:white; background:var(--green); padding:6px 12px; border-radius:4px; margin-bottom:16px;">Layer 2 — Human-Centered Capacities</p>
               <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
                 <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">CONNECTION</p><p style="font-size:0.82rem; color:var(--ink-mid);">Connect to self, community, or world</p></div>
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">CARE</p><p style="font-size:0.82rem; color:var(--ink-mid);">What matters, and why</p></div>
               </label>
               <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
                 <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">INQUIRY</p><p style="font-size:0.82rem; color:var(--ink-mid);">Student-generated questions</p></div>
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">CURIOSITY</p><p style="font-size:0.82rem; color:var(--ink-mid);">Ask, and keep asking</p></div>
               </label>
               <label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer;">
                 <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">PERSPECTIVE</p><p style="font-size:0.82rem; color:var(--ink-mid);">Consider multiple viewpoints</p></div>
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">CONNECTION</p><p style="font-size:0.82rem; color:var(--ink-mid);">Relevance to self and others</p></div>
               </label>
             </div>
-            <div style="padding:20px 24px;">
+            <div class="ts-focuscol" style="padding:20px 24px;">
               <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:white; background:var(--purple); padding:6px 12px; border-radius:4px; margin-bottom:16px;">Layer 3 — Connected World Responsibilities</p>
               <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
                 <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">IDENTITY</p><p style="font-size:0.82rem; color:var(--ink-mid);">Represent self authentically and responsibly</p></div>
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">IDENTITY &amp; PRESENCE</p><p style="font-size:0.82rem; color:var(--ink-mid);">Represent yourself responsibly</p></div>
               </label>
               <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
                 <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">RESPONSIBILITY</p><p style="font-size:0.82rem; color:var(--ink-mid);">Consider impact and consequences</p></div>
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">PRIVACY &amp; AGENCY</p><p style="font-size:0.82rem; color:var(--ink-mid);">Informed choices about personal info</p></div>
               </label>
               <label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer;">
                 <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">WELLBEING</p><p style="font-size:0.82rem; color:var(--ink-mid);">Use technology and information intentionally</p></div>
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">WELLBEING &amp; INTENTIONALITY</p><p style="font-size:0.82rem; color:var(--ink-mid);">Use tech with awareness and purpose</p></div>
               </label>
             </div>
           </div>
         </div>
 
         <!-- STEP 2 -->
-        <div style="border:1px solid var(--rule); border-radius:var(--radius-sm); margin-bottom:24px; overflow:hidden;">
-          <div style="background:var(--navy); padding:14px 24px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <div class="ts-block" style="border:1px solid var(--rule); border-radius:var(--radius-sm); margin-bottom:24px; overflow:hidden;">
+          <div class="ts-bar" style="background:var(--navy); padding:14px 24px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
             <span style="background:white; color:var(--navy); font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px;">Step 2</span>
             <span style="font-size:1rem; font-weight:700; color:white;">Make a Small Shift <span style="font-weight:400; font-style:italic; color:rgba(255,255,255,0.6);">(This Is the Work)</span></span>
             <span style="font-size:0.85rem; color:rgba(255,255,255,0.5); margin-left:auto; font-style:italic;">Keep it small. If it feels like a new lesson, it's too much.</span>
@@ -4206,9 +4295,9 @@ p { margin-bottom: 16px; line-height: 1.75; }
         </div>
 
         <!-- STEPS 3 & 4 -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:24px;">
+        <div class="ts-block" style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:24px;">
           <div style="border:2px solid var(--green); border-radius:var(--radius-sm); overflow:hidden;">
-            <div style="background:var(--green); padding:12px 20px; display:flex; align-items:center; gap:10px;">
+            <div class="ts-bar" style="background:var(--green); padding:12px 20px; display:flex; align-items:center; gap:10px;">
               <span style="background:white; color:var(--green); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border-radius:999px;">Step 3</span>
               <span style="font-size:0.9rem; font-weight:700; color:white;">Add One Caring and Curious Moment</span>
             </div>
@@ -4220,25 +4309,25 @@ p { margin-bottom: 16px; line-height: 1.75; }
                 <label style="display:flex; gap:8px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--green); width:15px; height:15px;"> Investigate an idea</label>
               </div>
               <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">What will this look like?</label>
-              <textarea rows="3" placeholder="Describe the specific moment..." style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
+              <textarea rows="3" placeholder="Describe the specific moment..." class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
             </div>
           </div>
           <div style="border:2px solid var(--purple); border-radius:var(--radius-sm); overflow:hidden;">
-            <div style="background:var(--purple); padding:12px 20px; display:flex; align-items:center; gap:10px;">
+            <div class="ts-bar" style="background:var(--purple); padding:12px 20px; display:flex; align-items:center; gap:10px;">
               <span style="background:white; color:var(--purple); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border-radius:999px;">Step 4</span>
               <span style="font-size:0.9rem; font-weight:700; color:white;">Protect What Already Works</span>
             </div>
             <div style="padding:18px 20px;">
               <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">What stays the same?</label>
-              <textarea rows="2" placeholder="What you are keeping from the original lesson..." style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5; margin-bottom:14px;"></textarea>
+              <textarea rows="2" placeholder="What you are keeping from the original lesson..." class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5; margin-bottom:14px;"></textarea>
               <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">What is the one change you are making?</label>
-              <textarea rows="2" placeholder="The single shift you are adding..." style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
+              <textarea rows="2" placeholder="The single shift you are adding..." class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
             </div>
           </div>
         </div>
 
         <!-- TEACHER-LIBRARIAN PARTNERSHIP -->
-        <div style="background:#fffbeb; border:1px solid #fcd34d; border-radius:var(--radius-sm); padding:18px 24px; margin-bottom:24px;">
+        <div class="ts-block" style="background:#fffbeb; border:1px solid #fcd34d; border-radius:var(--radius-sm); padding:18px 24px; margin-bottom:24px;">
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
             <span style="font-size:1.2rem;">🤝</span>
             <p style="font-size:0.85rem; font-weight:700; color:var(--amber); text-transform:uppercase; letter-spacing:0.08em;">Optional — Teacher-Librarian Partnership</p>
@@ -4246,15 +4335,15 @@ p { margin-bottom: 16px; line-height: 1.75; }
           <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
             <p style="font-size:0.85rem; color:var(--ink-mid); margin-right:8px;">Where could support help?</p>
             <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> Source curation</label>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> Research strategy (Authority)</label>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> Media analysis (Intent)</label>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> AI use / evaluation (Machine)</label>
+            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> Research strategy (Information)</label>
+            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> Media analysis (Media)</label>
+            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> AI use / evaluation (AI)</label>
             <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> Co-teaching support</label>
           </div>
         </div>
 
         <!-- QUICK REMINDERS -->
-        <div style="background:var(--navy); border-radius:var(--radius-sm); padding:18px 24px;">
+        <div class="ts-block" style="background:var(--navy); border-radius:var(--radius-sm); padding:18px 24px;">
           <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:14px;">Quick Reminders</p>
           <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:16px;">
             <div style="text-align:center;"><p style="font-size:1.3rem; margin-bottom:6px;">🎯</p><p style="font-size:0.78rem; color:rgba(255,255,255,0.8); line-height:1.5;"><strong style="color:white;">Start with your lesson,</strong> not the framework.</p></div>
@@ -4266,9 +4355,9 @@ p { margin-bottom: 16px; line-height: 1.75; }
         </div>
 
         <!-- PRINT / CLEAR BUTTONS -->
-        <div style="display:flex; gap:12px; justify-content:flex-end; margin-top:20px;">
+        <div class="no-print" style="display:flex; gap:12px; justify-content:flex-end; margin-top:20px;">
           <button onclick="const s=document.getElementById('teacher-think-sheet');s.querySelectorAll('input[type=text],textarea').forEach(i=>i.value='');s.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);" style="background:white; border:1px solid var(--rule); color:var(--ink-mid); font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">Clear</button>
-          <button onclick="printThinkSheet('teacher-think-sheet','Teacher Think Sheet — I AM Caring and Curious')" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Think Sheet</button>
+          <button onclick="printOnly('teacher-think-sheet', true);" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Think Sheet</button>
         </div>
 
       </div>
@@ -4434,9 +4523,9 @@ p { margin-bottom: 16px; line-height: 1.75; }
       </div>
 
       <!-- PRINT / CLEAR BUTTONS -->
-      <div style="display:flex; gap:12px; justify-content:flex-end; margin-bottom:20px;">
+      <div class="no-print" style="display:flex; gap:12px; justify-content:flex-end; margin-bottom:20px;">
         <button onclick="const s=document.getElementById('creator-think-sheet');s.querySelectorAll('input[type=text],textarea').forEach(i=>i.value='');s.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);" style="background:white; border:1px solid var(--rule); color:var(--ink-mid); font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">Clear</button>
-        <button onclick="printThinkSheet('creator-think-sheet','Student Thinking Document — I AM Caring and Curious')" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Thinking Document</button>
+        <button onclick="printOnly('creator-think-sheet', false);" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Thinking Document</button>
       </div>
 
       <!-- Creator Check -->
@@ -5327,54 +5416,6 @@ p { margin-bottom: 16px; line-height: 1.75; }
 </footer>
 
 <script>
-  // Prints only the specified section (e.g. a Think Sheet) instead of the entire page.
-  // Carries over whatever the user has typed or checked, and strips the Clear/Print
-  // buttons themselves out of the printed copy.
-  function printThinkSheet(sectionId, docTitle) {
-    var original = document.getElementById(sectionId);
-    if (!original) return;
-    var clone = original.cloneNode(true);
-
-    var origFields = original.querySelectorAll('input, textarea');
-    var cloneFields = clone.querySelectorAll('input, textarea');
-    origFields.forEach(function(orig, i) {
-      var c = cloneFields[i];
-      if (!c) return;
-      if (orig.type === 'checkbox' || orig.type === 'radio') {
-        if (orig.checked) { c.setAttribute('checked', 'checked'); }
-        else { c.removeAttribute('checked'); }
-      } else if (orig.tagName.toLowerCase() === 'textarea') {
-        c.textContent = orig.value;
-      } else {
-        c.setAttribute('value', orig.value);
-      }
-    });
-
-    clone.querySelectorAll('button').forEach(function(b) { b.remove(); });
-
-    var styleTag = document.querySelector('style');
-    var styles = styleTag ? styleTag.outerHTML : '';
-    var fontLinks = '<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">';
-
-    var win = window.open('', '_blank');
-    if (!win) { window.print(); return; }
-    win.document.open();
-    win.document.write(
-      '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
-      '<title>' + docTitle + '</title>' +
-      fontLinks + styles +
-      '</head><body style="background:white; padding:32px;">' +
-      clone.outerHTML +
-      '</body></html>'
-    );
-    win.document.close();
-
-    setTimeout(function() {
-      win.focus();
-      win.print();
-    }, 400);
-  }
-
   (function() {
     var toggle = document.getElementById('navToggle');
     var links = document.getElementById('navLinks');
@@ -5390,6 +5431,32 @@ p { margin-bottom: 16px; line-height: 1.75; }
       });
     });
   })();
+
+  // Print a single card (Teacher Think Sheet or Creator Think Sheet)
+  // in isolation: temporarily move it to be a direct child of <body>
+  // so the rest of the document is removed from the print flow
+  // entirely (not just hidden), then restore it after printing.
+  var __printIsolated = null;
+  function printOnly(id, compact) {
+    var el = document.getElementById(id);
+    if (!el) { window.print(); return; }
+    var marker = document.createComment('print-return-marker-' + id);
+    el.parentNode.insertBefore(marker, el);
+    document.body.appendChild(el);
+    if (compact) { el.classList.add('ts-print-compact'); }
+    document.body.classList.add('printing-isolated');
+    __printIsolated = { el: el, marker: marker, compact: !!compact };
+    window.print();
+  }
+  window.addEventListener('afterprint', function() {
+    document.body.classList.remove('printing-isolated');
+    if (__printIsolated) {
+      if (__printIsolated.compact) { __printIsolated.el.classList.remove('ts-print-compact'); }
+      __printIsolated.marker.parentNode.insertBefore(__printIsolated.el, __printIsolated.marker);
+      __printIsolated.marker.remove();
+      __printIsolated = null;
+    }
+  });
 </script>
 </body>
 </html>
