@@ -134,20 +134,21 @@ a { color: inherit; }
   color: white;
 }
 .nav-group-label {
-  font-size: 0.74rem;
+  font-size: 0.86rem;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: white;
-  background: #b45309;
-  padding: 5px 12px;
-  border-radius: 999px;
+  color: #b45309;
+  background: none;
+  padding: 0 10px 0 4px;
+  border-radius: 0;
   display: flex;
   align-items: center;
+  cursor: default;
 }
 .nav-group-label.secondary {
-  color: white;
-  background: var(--navy);
+  color: var(--navy);
+  background: none;
 }
 .nav-divider {
   width: 1px;
@@ -2089,30 +2090,31 @@ p { margin-bottom: 16px; line-height: 1.75; }
       <span></span><span></span><span></span>
     </button>
     <nav class="nav-links" id="navLinks">
-      <span class="nav-group-label">For the Classroom</span>
-      <a href="#essentials" class="nav-primary">Essentials</a>
-      <a href="#teaching" class="nav-primary">I AM Teaching Companion</a>
-      <a href="#assessment" class="nav-primary">I AM Assessment Guide</a>
-      <a href="#hc-teaching" class="nav-primary">Human-Centered Companion</a>
-      <a href="#cw-teaching" class="nav-primary">Connected World Companion</a>
-      <a href="#think-sheet-section" class="nav-primary">Teacher Think Sheet</a>
-      <a href="#creator" class="nav-primary">Curious Creator</a>
-      <span class="nav-divider"></span>
       <span class="nav-group-label secondary">The Foundations</span>
-      <a href="#what-is-iam">What is I AM</a>
-      <a href="#architecture">Framework</a>
+      <a href="#what-is-iam">What Is I AM?</a>
+      <a href="#architecture">Three Layer Overview</a>
       <a href="#heart">The Heart of I AM</a>
       <a href="#why">Why This Matters</a>
       <a href="#where-matters">Where It Matters</a>
-      <a href="#foundation">Curiosity</a>
       <a href="#bands">Human-Centered Capacities</a>
+      <a href="#foundation">Curiosity</a>
       <a href="#connected-world">Connected World Responsibilities</a>
       <a href="#partnerships">Powerful Partnerships</a>
       <a href="#curriculum">Curriculum Integration</a>
       <a href="#equity">Equity &amp; Access</a>
+      <a href="#why-iam">The Global Context</a>
       <a href="#research">Research &amp; Foundations</a>
       <a href="#coverage">Coverage Comparisons</a>
       <a href="#authors" class="nav-cta">Authors</a>
+      <span class="nav-divider"></span>
+      <span class="nav-group-label">For the Classroom</span>
+      <a href="#essentials" class="nav-primary">Essential Learnings</a>
+      <a href="#teaching" class="nav-primary">I AM Teaching Companion</a>
+      <a href="#assessment" class="nav-primary">I AM Assessment Guide</a>
+      <a href="#hc-teaching" class="nav-primary">Human-Centered Teaching Companion</a>
+      <a href="#cw-teaching" class="nav-primary">Connected World Teaching Companion</a>
+      <a href="#think-sheet-section" class="nav-primary">Teacher Think Sheet</a>
+      <a href="#creator" class="nav-primary">The Creator's Golden Rule</a>
     </nav>
   </div>
 </header>
@@ -2129,8 +2131,8 @@ p { margin-bottom: 16px; line-height: 1.75; }
       <span class="word-a">A</span><span class="word-sep">I.</span>
       <span class="word-m">M</span><span class="word-sep">edia.</span>
     </div>
-    <p style="font-family:var(--font-display); font-size:2rem; font-weight:700; color:white; margin-bottom:8px; letter-spacing:-0.01em; text-align:center;">Caring and Curious <span style="color:#fcd34d;">in a Connected World</span></p>
-    <p class="hero-tagline">A Practical Toolkit for Information, AI, and Media Literacy</p>
+    <p style="font-family:var(--font-display); font-size:2rem; font-weight:700; color:white; margin-bottom:8px; letter-spacing:-0.01em; text-align:center;">Caring and Curious</p>
+    <p class="hero-tagline">A Practical Toolkit for Information, AI, and Media Literacy <span style="color:#fcd34d; font-weight:700;">in a Connected World</span></p>
     <div class="hero-statement">
       <p class="hero-reader-read">"The reader is being read."</p>
       <p class="hero-reader-explain">The reader is being read. Students are not simply reading information online. They are not simply getting answers to questions that they have. They are also being read by the very tools that they are using. Not only are they capturing their attention, but they are also capturing their ideas and creative inspiration. This framework teaches students to understand the context they're in and develop independent thinking.</p>
@@ -2138,7 +2140,7 @@ p { margin-bottom: 16px; line-height: 1.75; }
     <div class="hero-ctas">
       <a href="#architecture" class="btn-hero primary">Explore the Framework</a>
       <a href="#teaching" class="btn-hero secondary">I AM Teaching Companion</a>
-      <a href="#why-iam" class="btn-hero secondary">Why I AM</a>
+      <a href="#why-iam" class="btn-hero secondary">The Global Context</a>
     </div>
   </div>
 </section>
@@ -2164,7 +2166,8 @@ p { margin-bottom: 16px; line-height: 1.75; }
 <section class="section" id="architecture">
   <div class="container">
     <span class="section-label">The Architecture</span>
-    <h2 class="section-title">Three Layers. Nine Elements. One Progression.</h2>
+    <h2 class="section-title">Three Layer Overview</h2>
+    <p style="font-family:var(--font-display); font-size:1.4rem; font-weight:600; color:var(--ink-mid); margin-top:-8px; margin-bottom:16px;">Three Layers. Nine Elements. One Progression.</p>
     <p class="section-lead">A developmental framework from Kindergarten through Grade 12, integrating information literacy, AI literacy, and media literacy with human-centered capacities and connected world responsibilities.</p>
 
     <div class="arch-layers">
@@ -4376,9 +4379,8 @@ p { margin-bottom: 16px; line-height: 1.75; }
      ============================================ -->
 <section class="section" id="creator" style="background: var(--cream);">
   <div class="container">
-    <span class="section-label">The Complete Framework</span>
-    <h2 class="section-title">I AM Caring and Curious</h2>
-    <p style="font-family:var(--font-display); font-size:2.2rem; font-weight:700; color:#b8860b; margin-top:-12px; margin-bottom:32px; letter-spacing:0.01em;">The Creator's Golden Rule</p>
+    <span class="section-label">I AM Caring and Curious</span>
+    <h2 class="section-title">The Creator's Golden Rule</h2>
     <p class="section-lead">A caring and curious thinker is the foundation of a caring and curious creator. We do not create in a vacuum. Every creator stands on the shoulders of sources, influences, ideas, and the work of others. The caring and curious thinker learns to see and respect that. The caring and curious creator learns to acknowledge it — in their own work, every time.</p>
 
     <!-- MIRROR PRINCIPLE -->
@@ -4625,8 +4627,9 @@ p { margin-bottom: 16px; line-height: 1.75; }
      ============================================ -->
 <section class="section tl-section" id="partnerships">
   <div class="container">
-    <span class="section-label">Powerful Partnerships</span>
-    <h2 class="section-title">Three Voices. One Coherent System.</h2>
+    <span class="section-label">The Triad</span>
+    <h2 class="section-title">Powerful Partnerships</h2>
+    <p style="font-family:var(--font-display); font-size:1.4rem; font-weight:600; color:rgba(255,255,255,0.75); margin-top:-8px; margin-bottom:24px;">Three Voices. One Coherent System.</p>
     <p class="section-lead">Partnering with your teacher librarian turns isolated lessons into a coherent K–12 system, and it starts with a simple shift: treating the teacher librarian as a full partner. Together with the student, the three of you form what this framework calls a Triad, three roles that each bring something the other two cannot reach alone.</p>
 
     <div class="tl-partnership">
@@ -4886,7 +4889,8 @@ p { margin-bottom: 16px; line-height: 1.75; }
 <section class="section why-iam-section" id="why-iam">
   <div class="container">
     <span class="section-label">Policy and Global Context</span>
-    <h2 class="section-title">Why I AM</h2>
+    <h2 class="section-title">The Global Context</h2>
+    <p style="font-family:var(--font-display); font-size:1.4rem; font-weight:600; color:var(--ink-mid); margin-top:-8px; margin-bottom:16px;">Why I AM</p>
     <p class="section-lead">Across the United States and around the world, educators, legislators, and international bodies are grappling with the same urgent question: how do we prepare students to navigate an information environment shaped by algorithmic persuasion, AI-generated content, and the collapse of trusted gatekeepers?</p>
 
     <p class="why-iam-explain">This is not a question any one state, or any one country, is answering alone. Legislators in a dozen states, international bodies representing dozens more, and researchers working independently of one another are converging on the same conclusion, without having coordinated the answer.</p>
@@ -4980,7 +4984,7 @@ p { margin-bottom: 16px; line-height: 1.75; }
 <section class="section" id="research">
   <div class="container">
     <span class="section-label">Research &amp; Foundations</span>
-    <h2 class="section-title">Research, Foundations, and Contributions</h2>
+    <h2 class="section-title">Research &amp; Foundations</h2>
 
     <p class="section-lead">I AM did not emerge in isolation. It was shaped by the work of researchers, librarians, educators, and thinkers who have spent their careers helping students navigate a complex and changing world. We are grateful for that foundation. This section honors the scholarship and traditions that informed our thinking and explains what we built from it.</p>
 
