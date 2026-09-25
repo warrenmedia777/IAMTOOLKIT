@@ -814,7 +814,7 @@ p { margin-bottom: 16px; line-height: 1.75; }
    ============================================ */
 .tc-intro {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   margin-bottom: 48px;
 }
@@ -2012,6 +2012,7 @@ p { margin-bottom: 16px; line-height: 1.75; }
   .why-grid { grid-template-columns: 1fr; }
   .why-card:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
   .tc-row { grid-template-columns: 1fr; }
+  .tc-intro { grid-template-columns: 1fr; }
   .tc-label { border-right: none; border-bottom: 1px solid var(--cream-dark); }
   .research-grid { grid-template-columns: 1fr; }
   .comparison-cards { grid-template-columns: 1fr; }
@@ -3592,11 +3593,10 @@ p { margin-bottom: 16px; line-height: 1.75; }
         <h3>How to Use It</h3>
         <p>Each grade offers one recurring teacher move per capacity, plus Encouraging Evidence: what a teacher might notice over time, not a rubric or a single sitting checklist. Choose a grade, pick one capacity to start with, and let the practice run alongside your existing curriculum rather than compete with it.</p>
       </div>
-    </div>
-
-    <div style="margin-top:24px; padding:28px 32px; background:var(--cream); border-radius:var(--radius-lg); border-left:5px solid var(--amber);">
-      <h3 style="font-family:var(--font-display); color:var(--navy); font-size:1.15rem; margin-bottom:12px;">Grounded in Research</h3>
-      <p style="color:var(--ink-mid); line-height:1.75;">Care, Curiosity, and Connection are not invented categories — they parallel <strong>Self-Determination Theory's</strong> three universal psychological needs: autonomy, competence, and relatedness, identified as present across the entire lifespan rather than staged by grade. That's also why these practices repeat at every grade level here instead of being unlocked in sequence. See the full citation and how each need maps onto I AM in <a href="#research" style="color:var(--navy); font-weight:700; text-decoration:underline;">Research &amp; Foundations</a>.</p>
+      <div class="tc-intro-card">
+        <h3>Grounded in Research</h3>
+        <p>Care, Curiosity, and Connection parallel Self-Determination Theory's three universal psychological needs — autonomy, competence, and relatedness — present across the whole lifespan rather than staged by grade. That's also why these practices repeat at every grade level here instead of being unlocked in sequence. Full citation in <a href="#research" style="color:var(--navy); font-weight:700; text-decoration:underline;">Research &amp; Foundations</a>.</p>
+      </div>
     </div>
 
     <div style="margin-top:24px; padding:28px 32px; background:var(--cream); border-radius:var(--radius-lg); border-left:5px solid #b45309;">
