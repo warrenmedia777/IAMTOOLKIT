@@ -2094,11 +2094,6 @@ p { margin-bottom: 16px; line-height: 1.75; }
   body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-focuscol label {
     margin-bottom: 5px !important;
   }
-  body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-textarea {
-    height: 18px !important;
-    min-height: 0 !important;
-    padding: 3px 8px !important;
-  }
   body.printing-isolated #teacher-think-sheet.ts-print-compact p,
   body.printing-isolated #teacher-think-sheet.ts-print-compact span,
   body.printing-isolated #teacher-think-sheet.ts-print-compact label {
@@ -2137,6 +2132,25 @@ p { margin-bottom: 16px; line-height: 1.75; }
 
   /* Buttons never belong in printed output, single-sheet or whole-page */
   .no-print, .no-print * { display: none !important; visibility: hidden !important; }
+}
+
+.ts-print-val { display: none; }
+@media print {
+  body.printing-isolated #teacher-think-sheet textarea,
+  body.printing-isolated #teacher-think-sheet select { display: none !important; }
+  body.printing-isolated #teacher-think-sheet .ts-print-val {
+    display: block !important; min-height: 1.5em; border-bottom: 1px solid #999;
+    white-space: pre-wrap; font-size: 0.78rem !important; line-height: 1.35 !important; padding: 2px 4px; color: #111;
+  }
+  body.printing-isolated #teacher-think-sheet.ts-has-picks .ts-focus-item:not(.ts-picked) { display: none !important; }
+  body.printing-isolated #teacher-think-sheet .ts-fam-off { display: none !important; }
+  body.printing-isolated #teacher-think-sheet.ts-no-fam #ts-family { display: none !important; }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-bar > span:nth-child(3) { display: none !important; }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact .ts-reminders { display: none !important; }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact #ts-shift > div,
+  body.printing-isolated #teacher-think-sheet.ts-print-compact #ts-notice > div { margin-bottom: 6px !important; }
+  body.printing-isolated #teacher-think-sheet.ts-print-compact #ts-shift,
+  body.printing-isolated #teacher-think-sheet.ts-print-compact #ts-notice { padding: 6px 12px !important; }
 }
 </style>
 </head>
@@ -2283,7 +2297,7 @@ p { margin-bottom: 16px; line-height: 1.75; }
 
     <h3 style="font-family:var(--font-display); color:var(--navy); font-size:1.2rem; margin-top:32px; margin-bottom:10px;">Connected World Responsibilities.</h3>
     <p style="color:var(--ink-mid); line-height:1.75;">The same capacities that inspire the three literacies inspire this too. This framework does not use the term digital citizenship, and that choice is deliberate. In many school implementations, digital citizenship has tended to narrow to online safety and etiquette: be careful, be kind, don't overshare. That is real and worth teaching, but it is not what students most need from us. The term has also grown to cover so much ground that it can be hard to find a firm place for it in a classroom already holding several other frameworks at once. A teacher reaching for it may find there isn't a clear, short answer to what it actually asks a student to do.</p>
-    <p style="color:var(--ink-mid); line-height:1.75; margin-top:16px;">Our students are part of a connected world whether we intend that for them or not. Being part of that world carries responsibilities, and we have narrowed those responsibilities to three that can be named, taught, and remembered: <strong>Identity &amp; Presence</strong>, <strong>Privacy &amp; Agency</strong>, and <strong>Wellbeing &amp; Intentionality</strong>. Presence, Agency, and Wellbeing, drawn from those three names, spell PAW: the mark a student leaves behind them in a connected world, the way a paw print is softer and more personal than the term digital footprint usually allows for.</p>
+    <p style="color:var(--ink-mid); line-height:1.75; margin-top:16px;">Our students are part of a connected world whether we intend that for them or not. Being part of that world carries responsibilities, and we have narrowed those responsibilities to three that can be named, taught, and remembered: <strong>Identity &amp; Presence</strong>, including how we treat the people we can't see, <strong>Privacy &amp; Agency</strong>, and <strong>Wellbeing &amp; Intentionality</strong>. Presence, Agency, and Wellbeing, drawn from those three names, spell PAW: the mark a student leaves behind them in a connected world, the way a paw print is softer and more personal than the term digital footprint usually allows for.</p>
 
     <h3 style="font-family:var(--font-display); color:var(--navy); font-size:1.2rem; margin-top:32px; margin-bottom:10px;">Why Three Sets of Three.</h3>
     <p style="color:var(--ink-mid); line-height:1.75;">This framework is built on a 3&times;3&times;3 structure: three literacies, three human capacities, three connected world responsibilities. That is not an accident of design, and it is not the full picture of everything a student could learn about information, media, and AI. It is a deliberate limit. We chose nine anchors that a teacher and a student can hold in their heads and return to, rather than an exhaustive list that would be hard to carry into a Tuesday morning lesson. Three Converging Literacies per grade level, with three Connected World Responsibilities to keep them anchored, and three Human-Centered Capacities to inspire the student to transfer I AM into their own world of curiosity and creation. What is not included here is not being denied. It is being left for the deeper study it deserves, elsewhere. This companion's job is to give every student and teacher three things worth caring about, three things worth being curious about, and three responsibilities worth carrying, and to make sure none of them get lost in a longer list.</p>
@@ -4037,86 +4051,38 @@ p { margin-bottom: 16px; line-height: 1.75; }
   <div class="container">
     <span class="section-label">Layer 3 — Developmental Progression</span>
     <h2 class="section-title">Connected World Responsibilities</h2>
-    <p class="section-lead">How students develop Identity &amp; Presence, Privacy &amp; Agency, and Wellbeing &amp; Intentionality from Kindergarten through Grade 12.</p>
+    <p class="section-lead">How students develop Identity &amp; Presence, Privacy &amp; Agency, and Wellbeing &amp; Intentionality from Kindergarten through Grade 12. Each grade has one statement per responsibility, grouped under the four band mottos. Within each responsibility, the progression moves from <em>me</em> toward <em>us</em>: from how I show up and protect myself toward how I treat, protect, and support others.</p>
 
-    <div class="bands-grid">
-
-      <div class="band-row" style="grid-template-columns: 140px 1fr 1fr 1fr;">
-        <div class="band-label" style="background:var(--green);">
-          <div class="band-grade">K–2</div>
-          <div class="band-motto">I share and protect.</div>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--purple);">Identity &amp; Presence</div>
-          <p>I am the same me whether I'm talking in person or through a screen.</p>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--blue);">Privacy &amp; Agency</div>
-          <p>I learn what information should stay private and how to ask trusted adults for help.</p>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--green);">Wellbeing &amp; Intentionality</div>
-          <p>I begin recognizing when and how to use technology with balance and purpose.</p>
-        </div>
-      </div>
-
-      <div class="band-row" style="grid-template-columns: 140px 1fr 1fr 1fr;">
-        <div class="band-label" style="background:var(--green);">
-          <div class="band-grade">3–5</div>
-          <div class="band-motto">I build and protect.</div>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--purple);">Identity &amp; Presence</div>
-          <p>What I post can be seen, copied, or resurfaced, even after I've stopped thinking about it.</p>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--blue);">Privacy &amp; Agency</div>
-          <p>I recognize the difference between public and private information and make safer choices online.</p>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--green);">Wellbeing &amp; Intentionality</div>
-          <p>I reflect on how technology affects my attention, emotions, and daily habits.</p>
-        </div>
-      </div>
-
-      <div class="band-row" style="grid-template-columns: 140px 1fr 1fr 1fr;">
-        <div class="band-label" style="background:var(--green);">
-          <div class="band-grade">6–8</div>
-          <div class="band-motto">I manage and evaluate.</div>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--purple);">Identity &amp; Presence</div>
-          <p>The version of me I show online is one I'm choosing, not the whole truth of who I am.</p>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--blue);">Privacy &amp; Agency</div>
-          <p>What I enter into an AI tool may be stored, reviewed, or used, depending on the tool and its settings.</p>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--green);">Wellbeing &amp; Intentionality</div>
-          <p>I develop healthy boundaries with technology, including AI chatbots and companions, and recognize the difference between a conversation with a machine and a relationship with a person.</p>
-        </div>
-      </div>
-
-      <div class="band-row" style="grid-template-columns: 140px 1fr 1fr 1fr;">
-        <div class="band-label" style="background:var(--green);">
-          <div class="band-grade">9–12</div>
-          <div class="band-motto">I curate and sustain.</div>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--purple);">Identity &amp; Presence</div>
-          <p>The presence I build now will be read by people I never get to explain myself to.</p>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--blue);">Privacy &amp; Agency</div>
-          <p>I make deliberate choices about which services get my data and attention, knowing free services often monetize both, and I can choose not to use one.</p>
-        </div>
-        <div class="band-cell">
-          <div class="band-cell-label" style="color:var(--green);">Wellbeing &amp; Intentionality</div>
-          <p>I sustain balanced technology practices, including with AI tools designed to feel like relationships, and choose human connection when that is what I actually need.</p>
-        </div>
-      </div>
-
+    <div class="essentials-table-wrap">
+      <table class="essentials-table">
+        <thead>
+          <tr>
+            <th>Gr.</th>
+            <th>Identity &amp; Presence</th>
+            <th>Privacy &amp; Agency</th>
+            <th>Wellbeing &amp; Intentionality</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4" style="background:var(--cream-dark); font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy);">K–2 &nbsp;·&nbsp; <em style="text-transform:none; letter-spacing:0; font-family:var(--font-display); font-size:0.95rem;">I share and protect.</em></td></tr>
+          <tr><td>K</td><td>I am the same me whether I'm talking in person or through a screen.</td><td>Some things stay private: my full name, my address, and my passwords.</td><td>I notice how I feel before and after using a screen.</td></tr>
+          <tr><td>1</td><td>People online can't see my face, so I choose kind words.</td><td>If something online gives me an "uh-oh" feeling, I stop and tell a trusted adult.</td><td>I can stop when screen time is over and choose something else I love to do.</td></tr>
+          <tr><td>2</td><td>I ask before I take or share a picture of someone.</td><td>People online may not be who they say they are.</td><td>A device that talks back is a machine, not a friend.</td></tr>
+          <tr><td colspan="4" style="background:var(--cream-dark); font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy);">3–5 &nbsp;·&nbsp; <em style="text-transform:none; letter-spacing:0; font-family:var(--font-display); font-size:0.95rem;">I build and protect.</em></td></tr>
+          <tr><td>3</td><td>What I post can be seen, copied, changed, or resurfaced, even after I've stopped thinking about it.</td><td>I know the difference between public and private information.</td><td>Some apps and games are designed to keep me on them.</td></tr>
+          <tr><td>4</td><td>I recognize and report cyberbullying.</td><td>Apps and games collect information about me, so I ask before downloading or accepting.</td><td>I plan my screen use with a purpose, including protecting my sleep.</td></tr>
+          <tr><td>5</td><td>I can be an upstander when someone is targeted online.</td><td>I use strong passwords and recognize common scams.</td><td>I notice when being online leaves me comparing or frustrated, and I take a break.</td></tr>
+          <tr><td colspan="4" style="background:var(--cream-dark); font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy);">6–8 &nbsp;·&nbsp; <em style="text-transform:none; letter-spacing:0; font-family:var(--font-display); font-size:0.95rem;">I manage and evaluate.</em></td></tr>
+          <tr><td>6</td><td>The version of me I show online is one I'm choosing, not the whole truth of who I am.</td><td>I choose who can see my posts and my location.</td><td>I know the difference between talking with an AI and a relationship with a person.</td></tr>
+          <tr><td>7</td><td>In group chats, tone, exclusion, and screenshots can hurt people, and I choose not to.</td><td>What I enter into an AI tool may be stored, reviewed, or used, depending on the tool and its settings.</td><td>Algorithms shape what I see and how I feel, and I can shape my feed.</td></tr>
+          <tr><td>8</td><td>My image and voice, and my classmates', can be faked by AI, and making or sharing a fake of someone is harm.</td><td>If anyone pressures me for private images or information, it's not my fault, and I tell someone I trust.</td><td>I set boundaries with notifications and phone-free times.</td></tr>
+          <tr><td colspan="4" style="background:var(--cream-dark); font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--navy);">9–12 &nbsp;·&nbsp; <em style="text-transform:none; letter-spacing:0; font-family:var(--font-display); font-size:0.95rem;">I curate and sustain.</em></td></tr>
+          <tr><td>9</td><td>The presence I build now will be read by people I never get to explain myself to.</td><td>I don't share other people's private information or images without their consent.</td><td>I know where to get help for myself or a friend.</td></tr>
+          <tr><td>10</td><td>I can disagree online without dehumanizing anyone.</td><td>I make deliberate choices about which services get my data and attention, knowing free services often monetize both, and I can choose not to use one.</td><td>I use technology in ways that strengthen my connections and my learning.</td></tr>
+          <tr><td>11</td><td>I build a presence that reflects what I care about.</td><td>I know how to report harm, remove content, and request my data.</td><td>I choose human connection when that's what I actually need.</td></tr>
+          <tr><td>12</td><td>I consider the influence I have on the communities I'm part of.</td><td>I can advocate for privacy for my community, not just for myself.</td><td>I design my own digital life plan for after high school.</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -4133,148 +4099,523 @@ p { margin-bottom: 16px; line-height: 1.75; }
     <div class="tc-intro">
       <div class="tc-intro-card">
         <h3>Why This Section Exists</h3>
-        <p>Layer 1 addresses what a student needs to know and be able to do. Layer 2 addresses why a student would want to apply any of it beyond the assignment or the classroom. Layer 3 addresses how a student carries that knowledge responsibly into a connected world, in the moments no lesson plan can fully anticipate. This section is built for Layer 3: a recurring habit, with an occasional moment inside it where a teacher poses a slightly new version of a familiar situation and simply listens.</p>
+        <p>Layer 1 addresses what a student needs to know and be able to do. Layer 2 addresses why a student would want to apply any of it beyond the assignment or the classroom. Layer 3 addresses how a student carries that knowledge responsibly into a connected world, in the moments no lesson plan can fully anticipate. These responsibilities matter in classwork, where students share, publish, collaborate, and use digital tools every day, and in students' personal lives, where most of these moments actually happen.</p>
       </div>
       <div class="tc-intro-card">
         <h3>How to Use It</h3>
-        <p>Each band offers one recurring teacher move per responsibility, plus Thoughtful Choices: a short note on the reasoning to look for, not a scored assessment. Choose a band, pick one responsibility to start with, and let the practice run alongside your existing curriculum rather than compete with it.</p>
+        <p>Each grade offers one statement per responsibility, with why it matters, where it shows up in class and in life, a recurring teaching move, Encouraging Evidence (what a teacher might notice over time, not a rubric), and a family conversation starter to extend the learning at home. Choose a grade, pick one responsibility to start with, and let the practice run alongside your existing curriculum rather than compete with it.</p>
       </div>
+      <div class="tc-intro-card">
+        <h3>Ethics Runs Through It</h3>
+        <p>Ethics is not a separate responsibility here. It lives most visibly in Identity &amp; Presence, who you are online includes how you treat the people you can't see, and runs through the other two: respecting other people's information and images, and supporting other people's wellbeing. It also appears in the Creator's Companion and throughout Layers 1 and 2.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:24px; padding:28px 32px; background:white; border-radius:var(--radius-lg); border-left:5px solid #b45309;">
+      <h3 style="font-family:var(--font-display); color:var(--navy); font-size:1.15rem; margin-bottom:12px;">Know Your Reporting Process.</h3>
+      <p style="color:var(--ink-mid); line-height:1.75;">Some of these practices, especially cyberbullying (Grade 4), AI-generated fakes (Grade 8), and pressure for private images or information (Grade 8), may lead a student to come forward about something that has happened to them or a friend. Before teaching them, know your school's reporting process and who to bring a disclosure to.</p>
     </div>
 
     <div class="grade-picker">
-      <span class="grade-picker-label">Choose a grade band</span>
+      <span class="grade-picker-label">Choose a grade</span>
       <div class="grade-btns">
-        <a href="#cw-k2" class="grade-btn">K–2</a>
-        <a href="#cw-35" class="grade-btn">3–5</a>
-        <a href="#cw-68" class="grade-btn">6–8</a>
-        <a href="#cw-912" class="grade-btn">9–12</a>
+        <a href="#cw-k" class="grade-btn">K</a>
+        <a href="#cw-1" class="grade-btn">1</a>
+        <a href="#cw-2" class="grade-btn">2</a>
+        <a href="#cw-3" class="grade-btn">3</a>
+        <a href="#cw-4" class="grade-btn">4</a>
+        <a href="#cw-5" class="grade-btn">5</a>
+        <a href="#cw-6" class="grade-btn">6</a>
+        <a href="#cw-7" class="grade-btn">7</a>
+        <a href="#cw-8" class="grade-btn">8</a>
+        <a href="#cw-9" class="grade-btn">9</a>
+        <a href="#cw-10" class="grade-btn">10</a>
+        <a href="#cw-11" class="grade-btn">11</a>
+        <a href="#cw-12" class="grade-btn">12</a>
       </div>
     </div>
 
-    <!-- K-2 -->
-    <details class="tc-accordion" id="cw-k2" open>
+    <!-- K–2: I share and protect. -->
+    <details class="tc-accordion" id="cw-k" open>
       <summary>
-        <span class="tc-grade-num">Grades K–2</span>
-        <span class="tc-grade-focus">I share and protect.</span>
+        <span class="tc-grade-num">Kindergarten</span>
+        <span class="tc-grade-focus">Same me, private things, noticing feelings</span>
         <span class="tc-chevron">▾</span>
       </summary>
       <div class="tc-detail">
         <article class="tc-card identity">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
-          <h4>Treat a message through a screen like a message in person</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Whenever students communicate through any tool, a class chat, a recorded message, a shared drawing app, treat it exactly like talking in person: same kindness rules, same "would you say this to their face" check. Make the two contexts explicitly the same thing, not two separate sets of manners.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who catches themselves and softens or reconsiders something in a digital message, without being told, the same way they would in person.</div></div>
+          <h4>I am the same me whether I'm talking in person or through a screen.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Young children often treat screens as a separate world where different rules apply. Establishing early that the person on the other side of a screen is real, and that they are the same person in both places, is the foundation for every later lesson on kindness, reputation, and responsibility online.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> video calls, recorded messages, and shared drawing or reading apps. <strong>In life:</strong> video chats with family, messages on a family device, and games played with others.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Whenever students communicate through any tool, treat it exactly like talking in person: same kindness rules, same "would you say this to their face?" check. Make the two settings explicitly the same, not two sets of manners.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who softens or reconsiders something in a digital message without being told, the same way they would in person.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"When we video chat with someone, are you still you? How do we show we're kind on a screen?"</em></div></div>
         </article>
         <article class="tc-card privacy">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
-          <h4>Pause before sharing, every time</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Whenever a digital tool asks for information, pause as a habit, not only when something feels risky, and ask together: is this something we share, or something we check with a trusted adult about first? The habit is the pause itself, practiced routinely, not just in the moment something goes wrong.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who pauses to ask what's being requested before being told to, or who names a trusted adult as an option on their own.</div></div>
+          <h4>Some things stay private: my full name, my address, and my passwords.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Kindergartners are increasingly asked for information by apps, games, and devices. A short, concrete list of what stays private gives them something they can remember and act on long before they can understand data collection.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> logging into learning apps, and profiles or name tags that use first names only. <strong>In life:</strong> games, toys, and apps that ask for a name, address, or password.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Make a class "private things" list with three items: full name, address, passwords. Whenever a digital tool asks for information, pause together and ask: is this on our private list? If it is, we check with a trusted adult first. The habit is the pause, practiced routinely, not only when something feels risky.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who pauses to ask before typing information into a tool, or who names a trusted adult on their own.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"What three things do we keep private online? Who can you ask if a game or app wants one of them?"</em></div></div>
         </article>
         <article class="tc-card wellbeing">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
-          <h4>Say thank you to the maker, protect chosen reading</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">When sharing a book, a song, or a piece of art, regularly pause to say who made it and take a moment to appreciate that someone made this for us. Separately, protect and name time for a student's own chosen reading or exploring as something good for them, not just extra, and make a book they picked themselves a visible, celebrated option, not a substitute for "real" activity.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who names appreciation for a maker unprompted, or who chooses a book over a screen and can say why that felt like the right call.</div></div>
+          <h4>I notice how I feel before and after using a screen.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Healthy technology habits start with noticing, not rules. A child who can name how they feel after a screen activity, calm, excited, grumpy, tired, is building the self-awareness every later wellbeing skill depends on.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> after a class video, an educational game, or tablet centers. <strong>In life:</strong> after shows, games, or videos at home.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">After any screen activity, do a quick feelings check: thumbs up, sideways, or down, or point to a feelings chart. Now and then, compare it with how students feel after recess, reading, or drawing. No judgment, just noticing.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who names how a screen activity made them feel without being asked, or notices that different activities leave them feeling different.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"How did you feel when the show ended? How do you feel after playing outside?"</em></div></div>
         </article>
       </div>
     </details>
 
-    <!-- 3-5 -->
-    <details class="tc-accordion" id="cw-35">
+    <details class="tc-accordion" id="cw-1">
       <summary>
-        <span class="tc-grade-num">Grades 3–5</span>
-        <span class="tc-grade-focus">I build and protect.</span>
+        <span class="tc-grade-num">Grade 1</span>
+        <span class="tc-grade-focus">Kind words, uh-oh moments, stopping well</span>
         <span class="tc-chevron">▾</span>
       </summary>
       <div class="tc-detail">
         <article class="tc-card identity">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
-          <h4>Make posting a stays-there decision</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Before anything goes up, a class blog post, a shared photo, a comment on a discussion board, pause and ask: are you okay with this being here even after you've moved on to something else? Make the pause about permanence, not just appropriateness.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who reconsiders posting something specifically because it will still be there later, not just because it might get them in trouble now.</div></div>
+          <h4>People online can't see my face, so I choose kind words.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Without faces and voices, words land harder than intended, and young children don't yet realize that tone gets lost. Teaching that words have to carry what a face usually would is the earliest form of online ethics.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> comments in shared apps and class messages. <strong>In life:</strong> messages to family and friends, and chat in games.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Read a short message aloud two ways, once kindly and once grumpily, and ask how it might sound to someone who can't hear your voice. Whenever students write a message, ask: could this hurt someone who can't see your smile?</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who adds a kind word or checks how a message might sound before sending it.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"When you send a message, how can the other person tell you're being kind?"</em></div></div>
         </article>
         <article class="tc-card privacy">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
-          <h4>Ask what a new tool wants, and why</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Before using any new digital tool or app in class, build in a standing question: what is this asking us for, and why might it want that? This becomes a routine check, not a one time lesson.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who raises the standing question about a new tool without being asked to.</div></div>
+          <h4>If something online gives me an "uh-oh" feeling, I stop and tell a trusted adult.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Children will eventually see something online that scares, confuses, or upsets them. Child-safety educators consistently teach the same simple response: stop, leave, and tell. Practicing it before it's needed, without blame, makes it more likely a child will actually tell.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> a pop-up, an unexpected video, or a strange message during school device use. <strong>In life:</strong> anything at home or a friend's house that feels scary, confusing, or wrong.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Name the "uh-oh" feeling together: a tummy drop, a sense that something isn't right. Practice the steps with pretend situations: stop, close the screen or turn it over, tell a grown-up. Always praise telling, and make sure students hear that they won't be in trouble for it.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who tells an adult about something online that felt wrong, or who describes the steps in their own words.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"If you ever see something online that gives you an uh-oh feeling, what will you do? You won't be in trouble for telling me."</em></div></div>
         </article>
         <article class="tc-card wellbeing">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
-          <h4>Name gratitude toward a source; normalize choosing to read</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Students begin naming, in their own words, gratitude toward a source: this author helped me understand something, this artist made something I enjoyed. This is the same habit that becomes sourcing and citation later, introduced here as appreciation rather than requirement. Keep a standing, easy answer available when a student has open time: read something you chose, normalizing it as a genuine option alongside anything screen based.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who names gratitude toward a specific source in their own words, or who chooses reading during open time without being reminded.</div></div>
+          <h4>I can stop when screen time is over and choose something else I love to do.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Stopping is hard for young children, and many apps and shows are designed to make it harder. Practicing the stop, with something else ready to choose, builds self-regulation, a skill that supports both learning and wellbeing.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> ending device time and moving to the next activity. <strong>In life:</strong> ending shows, games, and videos at home.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Give a heads-up before device time ends, then have students say their next activity out loud: "When I stop, I'm going to ___." Build a class list of favorite non-screen activities students can point to.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who stops at the signal without a struggle, or names what they'll do next on their own.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"When screen time ends today, what's something else you'd love to do?"</em></div></div>
         </article>
       </div>
     </details>
 
-    <!-- 6-8 -->
-    <details class="tc-accordion" id="cw-68">
+    <details class="tc-accordion" id="cw-2">
       <summary>
-        <span class="tc-grade-num">Grades 6–8</span>
-        <span class="tc-grade-focus">I manage and evaluate.</span>
+        <span class="tc-grade-num">Grade 2</span>
+        <span class="tc-grade-focus">Asking permission, who is really there, machines are not friends</span>
         <span class="tc-chevron">▾</span>
       </summary>
       <div class="tc-detail">
         <article class="tc-card identity">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
-          <h4>Notice the gap between presented and actual self</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">As students participate across digital spaces and group work, periodically ask: does how you're showing up here feel like you? This isn't a discipline conversation. It's a standing invitation to notice the gap, if any, between a presented self and an actual self.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">When occasionally asked "does this feel like you?" in a new context, listen for whether the student can locate the gap themselves. That reflective noticing matters more than any particular answer.</div></div>
+          <h4>I ask before I take or share a picture of someone.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Consent begins with photos. Asking before taking or sharing someone's picture is the simplest, most concrete way to teach that other people have a say over their own image, a foundation for later lessons on privacy and AI-generated fakes.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> photos for projects, class books, or slideshows. <strong>In life:</strong> taking pictures of friends and family, and sharing them with others.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Whenever the class takes photos, model asking: "May I take your picture? May I share it with the class?" Let students practice asking each other, and practice honoring a "no."</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who asks before photographing a classmate, or who accepts a "no" without arguing.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Do you ask before you take someone's picture? How would you feel if someone shared a picture of you without asking?"</em></div></div>
         </article>
         <article class="tc-card privacy">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
-          <h4>Extend the pause to AI tools</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Extend the practice of pausing before sharing information, established since earlier grades, to AI tools specifically. Before relying on an output, ask what was given to the tool, and what the tool's own settings say may happen to that information next — it may be stored, reviewed, or used, depending on the tool. Make this a standing habit before any AI assisted task, not a single unit on privacy.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who asks what happens to what they enter into an AI tool, without being asked to consider it.</div></div>
+          <h4>People online may not be who they say they are.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Many games and apps used by young children include chat with people they don't know, and children naturally trust that someone is who they claim to be. Understanding that online identities can be pretend, without making the internet frightening, keeps the "uh-oh" rule and the private list working.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> characters, usernames, and avatars in learning apps. <strong>In life:</strong> games with chat, video comments, and messages from people they don't know.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Show how easy it is to pretend online with a teacher-made avatar or username that doesn't match who you are. Ask: how could you know who is really behind this? Connect it to the rule: if someone you don't know asks for private things or asks you to keep a secret, tell a trusted adult.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who questions who is really behind an online name or character, or tells an adult when someone unknown contacts them.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"If someone in a game says they're a kid, how could you know if that's true? What would you do if they asked you to keep a secret?"</em></div></div>
         </article>
         <article class="tc-card wellbeing">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
-          <h4>Credit sources; notice reading versus screen time</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Extend gratitude toward information sources specifically. When research turns up something useful, name the source and what it gave you before moving on to what you disagree with or want to add. Continue protecting self chosen reading and learning time, now with students naming why they chose what they chose, and periodically ask students directly how their chosen reading compares to their screen time, without judgment, just as a noticing habit.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who credits a research source before critiquing it, or who can honestly compare their chosen reading and screen time without prompting toward a particular answer.</div></div>
-        </article>
-        <article class="tc-card wellbeing">
-          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
-          <h4>Name what a chatbot can't do</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Whenever students use an AI tool that responds conversationally, pause to name specifically what it cannot do: it cannot know you outside this conversation, disagree with you because it actually sees something differently, or notice if you seem off today unless you tell it to. Make this a comparison with a specific real person, not an abstract rule.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who can name, in their own words, something a real relationship offers that a conversation with an AI tool can't, or who mentions choosing to talk to a person about something instead of a chatbot.</div></div>
+          <h4>A device that talks back is a machine, not a friend.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Voice assistants, chatbots, and AI-powered toys are designed to sound warm and friendly, and young children readily treat them as people. Gently separating a friendly-sounding machine from a real friend protects children's trust and sets up the distinction they will need when AI companions become available to them.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> voice assistants, read-aloud tools, or talking learning apps. <strong>In life:</strong> smart speakers, talking toys, and chatbots at home.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Ask students what makes someone a friend: they remember you, care about you, play with you. Then ask: can a talking device do those things, or does it just sound like it can? Sort examples into "friend" and "machine that talks."</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who calls a talking device a machine or tool, or explains the difference in their own words.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Is the voice in our speaker a friend? What's different about a real friend?"</em></div></div>
         </article>
       </div>
     </details>
 
-    <!-- 9-12 -->
-    <details class="tc-accordion" id="cw-912">
+    <!-- 3–5: I build and protect. -->
+    <details class="tc-accordion" id="cw-3">
       <summary>
-        <span class="tc-grade-num">Grades 9–12</span>
-        <span class="tc-grade-focus">I curate and sustain.</span>
+        <span class="tc-grade-num">Grade 3</span>
+        <span class="tc-grade-focus">Lasting posts, public and private, designed to keep me on</span>
         <span class="tc-chevron">▾</span>
       </summary>
       <div class="tc-detail">
         <article class="tc-card identity">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
-          <h4>Weigh the reader who wasn't there</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">When students publish or post anything with some permanence, a portfolio piece, a public account, a comment under their name, ask them to name a specific person who might read it later without any context, a future employer, an admissions reader, a stranger, and ask what that reader would assume without being able to ask a follow up question.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who names a specific absent reader and adjusts something because of them, not just an abstract awareness that "people can see this."</div></div>
+          <h4>What I post can be seen, copied, changed, or resurfaced, even after I've stopped thinking about it.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">By third grade, many students are posting, commenting, or sending pictures, often in games and group apps. Understanding that digital content lasts, spreads, and can be altered, including by AI, is the core of what digital footprint lessons try to teach, and the starting point for taking responsibility for it.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> shared documents, class blogs, and published student work. <strong>In life:</strong> game chats, comments, videos, and pictures sent to friends.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Write a sentence on a sticky note and "post" it. Make copies, move one to another room, change a word on another. Ask: can you get all of them back? Which one is still yours? Connect it to anything students post.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who reconsiders something before posting it because of who might see it later, or who explains the idea to someone else.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"If you posted something today, who might see it next year? Could someone change it?"</em></div></div>
         </article>
         <article class="tc-card privacy">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
-          <h4>Bring the pause to every digital choice</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Students bring the habit of pausing before sharing information, built since earlier grades, to their own digital choices independently: what am I sharing, with whom, and why, across whatever tool or platform the moment involves, academic or personal. That includes asking what a free service gets in exchange — attention, behavior, personal data, the content they create — and whether the trade is worth it.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who can explain a choice about what they shared or withheld, including outside an academic context, without being asked to justify it, or who limits or declines a service after weighing what it asks for.</div></div>
+          <h4>I know the difference between public and private information.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Students meet requests for information constantly, and not every request is a risk. Sorting public information, like a favorite color, from private information, like a home address, a school schedule, or a password, lets them share appropriately instead of either sharing everything or fearing everything.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> profiles in learning apps, and what to include in a published "about me." <strong>In life:</strong> game profiles, usernames, and what to tell new online contacts.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Give students cards naming kinds of information and have them sort the cards into public, private, and "it depends." Spend most of the time on the "it depends" pile: what makes the difference?</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who recognizes a request as private and chooses not to share, or notices that something like a photo can reveal more than intended.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Is your birthday public or private? What about the name of your school?"</em></div></div>
         </article>
         <article class="tc-card wellbeing">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
-          <h4>Treat gratitude and self-chosen learning as intellectual life</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Gratitude toward sources becomes part of how students discuss their own research and creative work, acknowledging influence and origin as a normal, valued part of intellectual life, not a citation formality. Self chosen learning is treated as a legitimate form of wellbeing worth defending, even against the pressure of assigned workload, and a student choosing a book over a screen, even occasionally, is worth naming as a real act of intentionality, not a quaint alternative.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who names influence and origin as part of discussing their own work, or who advocates for their own chosen reading or learning time against competing pressure.</div></div>
+          <h4>Some apps and games are designed to keep me on them.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Features like autoplay, streaks, rewards for returning, and endless scrolling are deliberate design choices meant to increase time on a device. Children who can name these features start to see their own pull toward a screen as something designed, not a personal failing, which makes it easier to manage.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> reward systems in learning games and apps. <strong>In life:</strong> autoplay on video sites, streaks, and daily rewards in games and apps.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">List features of students' favorite apps and games: autoplay, streaks, rewards for coming back, "just one more level." For each, ask: who does this help, me or the company? Then have students design a "fair" version of a game that makes it easy to stop.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who names a design feature and how it affects them, such as "autoplay makes it hard to stop."</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"What does your favorite game do to make you want to keep playing?"</em></div></div>
+        </article>
+      </div>
+    </details>
+
+    <details class="tc-accordion" id="cw-4">
+      <summary>
+        <span class="tc-grade-num">Grade 4</span>
+        <span class="tc-grade-focus">Reporting cyberbullying, app permissions, purposeful screen use</span>
+        <span class="tc-chevron">▾</span>
+      </summary>
+      <div class="tc-detail">
+        <article class="tc-card identity">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
+          <h4>I recognize and report cyberbullying.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Cyberbullying often begins in upper elementary school, through games, group chats, and shared apps, and adults rarely see it unless a child tells them. Students need to recognize it, including quieter forms like exclusion and mocking, and know that reporting it, rather than passing it along, is the right move.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> comments in shared documents, classroom platforms, and group projects. <strong>In life:</strong> group chats, games, video comments, and messages.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Use short scenarios to tell the difference between teasing between friends, conflict, and cyberbullying: repeated, meant to hurt, and hard to escape. Practice the response: don't reply or forward it, save the evidence, tell a trusted adult, and use the platform's report button. Make sure students know who to tell at school.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who reports cyberbullying, or who can explain what makes something cyberbullying rather than a disagreement.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Have you ever seen someone being mean online? Who could you tell, and what would you do with the message?"</em></div></div>
+        </article>
+        <article class="tc-card privacy">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
+          <h4>Apps and games collect information about me, so I ask before downloading or accepting.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Apps and games routinely ask for permission to use location, contacts, the camera, or the microphone, and many collect information about how children use them. Asking a trusted adult before downloading or accepting builds the habit of treating permissions as choices, not obstacles to click past.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> what school-approved tools ask for, and why. <strong>In life:</strong> downloading games and apps, and tapping "allow" on pop-ups.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Show the permission requests from a familiar app: camera, microphone, location, contacts. For each, ask: why would this app need that? Would you say yes? Practice "ask before accept" as a routine.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who asks before downloading or accepting, or questions why an app wants a particular permission.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"When an app asks to use your location or camera, what should we do? Let's look at the permissions on one of your apps together."</em></div></div>
         </article>
         <article class="tc-card wellbeing">
           <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
-          <h4>Choose the harder conversation on purpose</h4>
-          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">When students describe relying on an AI tool for support, advice, or company, don't discourage the tool itself. Instead, ask what talking to a person about the same thing would require that talking to a machine doesn't: risk, patience, the chance of being told something you didn't want to hear. Make choosing that harder conversation, when it's warranted, a visible act of intentionality worth naming, not an assumed default.</div></div>
-          <div class="tc-row"><div class="tc-label">Thoughtful Choices</div><div class="tc-content">A student who can articulate why a human conversation was worth the extra friction, or who chooses to bring something to a person specifically because an AI tool would have made it too easy.</div></div>
+          <h4>I plan my screen use with a purpose, including protecting my sleep.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Screen use close to bedtime is consistently linked with shorter and poorer sleep in children, and sleep affects mood, attention, and learning. Planning screen use with a purpose, and choosing when screens end, turns time limits from rules imposed by adults into decisions students make for themselves.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> setting a goal before using a device ("I'm going to find ___"). <strong>In life:</strong> deciding when screens end at night and where devices charge.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Before device use, have students state their purpose, and afterward ask: did I do what I planned? Talk about sleep: how do you feel when you've slept well, and what helps? Students make a simple personal plan for when screens end at night.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who states a purpose before using a device, or describes their own plan for protecting sleep.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"What time should screens end at our house so everyone sleeps well? Where should devices charge at night?"</em></div></div>
+        </article>
+      </div>
+    </details>
+
+    <details class="tc-accordion" id="cw-5">
+      <summary>
+        <span class="tc-grade-num">Grade 5</span>
+        <span class="tc-grade-focus">Upstanding, passwords and scams, taking breaks</span>
+        <span class="tc-chevron">▾</span>
+      </summary>
+      <div class="tc-detail">
+        <article class="tc-card identity">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
+          <h4>I can be an upstander when someone is targeted online.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Most online cruelty has an audience, and bullying research consistently finds that peers who support the target can make a real difference. Moving from recognizing cyberbullying to having safe, realistic ways to help is where online ethics becomes action.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> responding when a classmate is mocked in comments or group work. <strong>In life:</strong> group chats, games, and social spaces where someone is being targeted.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Brainstorm upstander moves that don't require confronting anyone: reach out privately to the person targeted, refuse to like or share, change the subject, report it, tell an adult. Students choose which moves feel safe and realistic for them.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who supports a targeted classmate, privately or publicly, or who refuses to join in.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"If someone in your group chat was being picked on, what could you do that feels safe to you?"</em></div></div>
+        </article>
+        <article class="tc-card privacy">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
+          <h4>I use strong passwords and recognize common scams.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">By fifth grade, many students manage their own accounts. Strong, private passwords and the ability to spot common scams, fake prizes, messages asking for passwords, offers too good to be true, protect students from the most common ways accounts and information are stolen.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> managing school account passwords. <strong>In life:</strong> game accounts, free-item offers, and messages that claim to come from a company or a friend.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Teach a simple strong-password method, such as a long phrase only you would know. Show examples of scam messages, like "You won free coins! Log in here." Ask: what clues tell you this is a trick?</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who creates a strong password and keeps it private, or identifies a message as a scam.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"How do you make a strong password? Have you ever seen a message offering free stuff if you logged in?"</em></div></div>
+        </article>
+        <article class="tc-card wellbeing">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
+          <h4>I notice when being online leaves me comparing or frustrated, and I take a break.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">As students spend more time in games and social spaces, they meet comparison, losing, being left out, and frustration. Noticing these feelings and stepping away is a self-regulation skill that protects mood and supports learning.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> frustration during difficult digital tasks. <strong>In life:</strong> games, videos, and social spaces that leave them feeling worse.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">After screen time, ask students to name how it left them feeling and why. Build a class list of quick "reset" activities. When frustration rises during a digital task, model taking a short break out loud.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who takes a break on their own when something online is frustrating them, or names a comparison feeling.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Does anything online ever leave you feeling worse? What helps you reset?"</em></div></div>
+        </article>
+      </div>
+    </details>
+
+    <!-- 6–8: I manage and evaluate. -->
+    <details class="tc-accordion" id="cw-6">
+      <summary>
+        <span class="tc-grade-num">Grade 6</span>
+        <span class="tc-grade-focus">A chosen self, audience and location, AI and real relationships</span>
+        <span class="tc-chevron">▾</span>
+      </summary>
+      <div class="tc-detail">
+        <article class="tc-card identity">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
+          <h4>The version of me I show online is one I'm choosing, not the whole truth of who I am.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Middle schoolers are forming their identities while curating profiles, photos, and posts, and they see everyone else's curated highlights. Understanding that every online version is selected, their own and other people's, protects against harmful comparison and opens a conversation about choosing a presence that reflects who they actually are.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> author bios, presentations, and digital portfolios where students decide how to represent themselves. <strong>In life:</strong> profiles, photos, filters, and posts on social and gaming platforms.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students compare a "highlight reel" of someone's day with what the full day might have included. Then ask: what do you choose to show online, and what do you leave out? Why?</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who recognizes curation in their own or others' posts, or describes choosing a presence that reflects who they are.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Do people show everything about their lives online? What do you choose to show?"</em></div></div>
+        </article>
+        <article class="tc-card privacy">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
+          <h4>I choose who can see my posts and my location.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Around this age, many students get their own phones and accounts, and many apps share location or default to public settings. Knowing how to choose an audience and control location sharing gives students real control over who can see and find them.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> sharing settings on documents and projects: view, comment, edit. <strong>In life:</strong> privacy settings, location sharing, and who can follow or message them.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Walk through sharing settings in a school tool, then compare them with a social or gaming platform's privacy settings. Ask: who is my audience? Who should be able to see where I am? Students make a privacy checklist they could use on any new app.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who checks or adjusts privacy or location settings, or explains why they chose a particular audience.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Who can see your posts? Is your location shared with anyone? Let's check the settings together."</em></div></div>
+        </article>
+        <article class="tc-card wellbeing">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
+          <h4>I know the difference between talking with an AI and a relationship with a person.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">AI chatbots and companions are designed to feel personal: they remember details, respond warmly, and are always available, and many teens use them for company or emotional support. Understanding that a chatbot simulates care rather than giving it is the foundation for healthy choices about these tools. Grade 11 builds on this distinction.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> how AI tools respond, praise, and agree. <strong>In life:</strong> chatbots, AI companions, and AI characters in apps and games.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students list what a real relationship involves: mutual care, shared history, someone who can be hurt or helped by you. Then look at a chatbot conversation: which of these are real, and which are designed to seem real?</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who describes AI as simulating care or friendship, or explains why a chatbot isn't a friend.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Do you or your friends ever talk with AI chatbots? How is that different from talking with a friend?"</em></div></div>
+        </article>
+      </div>
+    </details>
+
+    <details class="tc-accordion" id="cw-7">
+      <summary>
+        <span class="tc-grade-num">Grade 7</span>
+        <span class="tc-grade-focus">Group chats, AI inputs, shaping my feed</span>
+        <span class="tc-chevron">▾</span>
+      </summary>
+      <div class="tc-detail">
+        <article class="tc-card identity">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
+          <h4>In group chats, tone, exclusion, and screenshots can hurt people, and I choose not to.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Group chats are where much of middle school social life happens, and where much of the hurt happens: messages misread, people left out, private moments screenshotted and shared. Students rarely recognize their own part in it. Naming these patterns lets students see the effect of their choices.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> group work in shared documents and class discussion platforms. <strong>In life:</strong> group chats, team chats, and messaging apps.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Present a realistic group chat scenario in which someone is left out or a message is screenshotted and shared. Ask: who was hurt, and how? What could each person have done differently?</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who includes someone, refuses to share a screenshot, or reconsiders a message's tone.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Has a group chat ever gotten out of hand? What made it go wrong?"</em></div></div>
+        </article>
+        <article class="tc-card privacy">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
+          <h4>What I enter into an AI tool may be stored, reviewed, or used, depending on the tool and its settings.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Students share personal information, schoolwork, and feelings with AI tools, often assuming the conversation is private. Depending on the tool, inputs may be stored, reviewed by people, or used to improve the system. Knowing this lets students decide what to share.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> school-approved AI tools and what students enter into them. <strong>In life:</strong> chatbots, AI apps, and AI features in social media.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Find and read the data or privacy section of an AI tool together. What happens to what you type? Who can see it? Students write a short "would I type this?" checklist. This can be done as a whole-class, teacher-led activity.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who checks a tool's data practices, or chooses not to enter personal information.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"What do you type into AI tools? Do you know where it goes?"</em></div></div>
+        </article>
+        <article class="tc-card wellbeing">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
+          <h4>Algorithms shape what I see and how I feel, and I can shape my feed.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Recommendation algorithms learn from what students watch and click, and can pull them toward content that leaves them anxious, angry, or comparing. Knowing that a feed can be shaped, by following, muting, unfollowing, and deliberately choosing what to ignore, gives students agency over their own attention.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> how video and search recommendations change based on what is clicked. <strong>In life:</strong> social media feeds, video recommendations, and "for you" pages.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students notice how their recommendations change after watching certain content. Then teach the tools for shaping a feed: unfollow, mute, "not interested," and choosing to scroll past.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who reports shaping their feed, or deliberately ignoring content that affects them negatively.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Does your feed leave you feeling better or worse? What could you change?"</em></div></div>
+        </article>
+      </div>
+    </details>
+
+    <details class="tc-accordion" id="cw-8">
+      <summary>
+        <span class="tc-grade-num">Grade 8</span>
+        <span class="tc-grade-focus">AI fakes, pressure and help, setting boundaries</span>
+        <span class="tc-chevron">▾</span>
+      </summary>
+      <div class="tc-detail">
+        <article class="tc-card identity">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
+          <h4>My image and voice, and my classmates', can be faked by AI, and making or sharing a fake of someone is harm.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">AI tools now make it easy to create realistic fake images, video, and audio of real people, and schools have seen them used to humiliate and harass students. Students need to understand that creating or sharing a fake of a real person, even "as a joke," can cause serious harm and in some cases may be illegal.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> AI image tools in creative projects, and the line between creativity and harm. <strong>In life:</strong> AI apps, filters, and image generators, and fakes that circulate in group chats.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Discuss a realistic scenario in which a student makes a fake image of a classmate "as a joke" and it spreads. Ask: who is harmed? Can it be taken back? Who is responsible, the maker, the people who shared it, or both? Keep examples non-sexual and focused on consent and harm. <strong>Before teaching this, know your school's reporting process</strong>, since a student may come forward afterward.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who refuses to create or share a fake of a real person, or who reports one.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"If someone made a fake picture or video of a classmate, what would you do?"</em></div></div>
+        </article>
+        <article class="tc-card privacy">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
+          <h4>If anyone pressures me for private images or information, it's not my fault, and I tell someone I trust.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Pressure for private images or information, from someone known or a stranger, is a real and serious risk for middle schoolers, and students who are targeted often stay silent out of shame or fear. The protective message is simple: pressure and threats are the other person's wrongdoing, never the student's fault, and telling a trusted adult is the way out.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> health, advisory, or digital citizenship lessons on pressure and safety. <strong>In life:</strong> messages from friends, crushes, or strangers on social media, games, and messaging apps.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Discuss pressure patterns at a general level: flattery, urgency, demands for secrecy, threats. Emphasize that it is never your fault, you won't be in trouble for telling, and help exists, including services such as NCMEC's Take It Down that help remove images. <strong>Before teaching this, know your school's reporting process</strong>, since a student may come forward afterward.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who can name a trusted adult they would tell, or explain why pressure is never their fault.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"If anyone ever pressured you for a picture or threatened you, I want you to know it's not your fault, and you can always tell me."</em></div></div>
+        </article>
+        <article class="tc-card wellbeing">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
+          <h4>I set boundaries with notifications and phone-free times.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Notifications are designed to interrupt, and constant interruption affects attention, learning, and sleep. Many California schools now limit phones during the school day; students who can set their own boundaries carry that skill into the rest of their lives.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> focused work time with devices silenced or put away. <strong>In life:</strong> notifications, phone-free meals, homework time, and bedtime.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students audit their notifications for one day: how many, from which apps, and which ones mattered. Each student chooses one boundary to try for a week, such as turning off one app's notifications or keeping homework time phone-free, and reflects on how it went.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who sets a boundary on their own and can describe its effect.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Should we have phone-free times as a family? Which notifications do we actually need?"</em></div></div>
+        </article>
+      </div>
+    </details>
+
+    <!-- 9–12: I curate and sustain. -->
+    <details class="tc-accordion" id="cw-9">
+      <summary>
+        <span class="tc-grade-num">Grade 9</span>
+        <span class="tc-grade-focus">A lasting presence, others' consent, getting help</span>
+        <span class="tc-chevron">▾</span>
+      </summary>
+      <div class="tc-detail">
+        <article class="tc-card identity">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
+          <h4>The presence I build now will be read by people I never get to explain myself to.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">High school students' online presence is increasingly seen by people outside their social circle: future colleges, employers, coaches, and communities. Those readers see only what is there, without context. Thinking about that audience helps students build a presence on purpose.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> published work, digital portfolios, and public presentations. <strong>In life:</strong> social media profiles, comments, and anything public.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students look at a public profile, their own or a public figure's, and ask: what impression would someone form from this alone, without being able to ask questions? Then: what would you want them to find?</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who revises or removes content because of how it might be read, or builds something they'd be glad to have found.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"If someone looked you up online, what would they find? Is that how you'd want to be seen?"</em></div></div>
+        </article>
+        <article class="tc-card privacy">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
+          <h4>I don't share other people's private information or images without their consent.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Sharing a screenshot, photo, location, or personal detail about someone else is one of the most common ways teens harm each other online, often without meaning to. Treating other people's information as theirs to share extends privacy from self-protection to respect for others.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> using classmates' work, images, or words in projects and presentations. <strong>In life:</strong> screenshots of private conversations, photos of friends, and sharing others' locations or secrets.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Present scenarios: forwarding a friend's private message, posting a group photo in which someone looks embarrassed, sharing a friend's location. For each, ask: whose information is this? Did they agree? What harm could follow?</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who asks before sharing someone else's image or information, or declines to forward a private message.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Do you ask before posting pictures of friends? How would you feel if someone shared your private messages?"</em></div></div>
+        </article>
+        <article class="tc-card wellbeing">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
+          <h4>I know where to get help for myself or a friend.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Teens often notice a friend struggling online before any adult does, and they are more likely to turn to friends than to adults. Knowing the school and community resources, and how to help a friend reach them, is one of the most important protective skills in digital wellness.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> knowing which school staff to approach for help. <strong>In life:</strong> noticing a friend in distress online, and knowing crisis lines and community supports.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Build a resource list together: school counselors and trusted staff, community services, and crisis lines such as 988. Discuss what to do if a friend says something worrying online: take it seriously, don't keep it secret, and connect them with an adult.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who can name where to go for help, or helps a friend connect with support.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"If a friend told you something worrying online, what would you do? Who could you go to?"</em></div></div>
+        </article>
+      </div>
+    </details>
+
+    <details class="tc-accordion" id="cw-10">
+      <summary>
+        <span class="tc-grade-num">Grade 10</span>
+        <span class="tc-grade-focus">Disagreeing humanely, data choices, technology that strengthens</span>
+        <span class="tc-chevron">▾</span>
+      </summary>
+      <div class="tc-detail">
+        <article class="tc-card identity">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
+          <h4>I can disagree online without dehumanizing anyone.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Online discussions of contested issues can quickly turn into insults, mockery, or treating people as enemies rather than people. Disagreeing while recognizing the humanity of the other person is central to civic participation and connects directly to Layer 2's Connection.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> discussion boards, debates, and peer feedback. <strong>In life:</strong> comments, debates, and arguments on social media.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Take a heated online exchange and have students rewrite one dehumanizing comment as a respectful disagreement that keeps its argument. Discuss: what changed? Was the point lost?</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who disagrees online without insults, or who redirects a heated discussion.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"How do people argue online? What makes a disagreement respectful?"</em></div></div>
+        </article>
+        <article class="tc-card privacy">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
+          <h4>I make deliberate choices about which services get my data and attention, knowing free services often monetize both, and I can choose not to use one.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Most free platforms make money from attention and data: time spent, behavior tracked, and the content users create. Seeing this exchange clearly lets students decide whether a service is worth what it takes, and recognize that declining a service is a legitimate choice.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> deciding which tools a project actually needs, and what each one asks for. <strong>In life:</strong> choosing apps, accepting terms, and deciding which platforms to use.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students choose one free service they use and investigate: what does it collect? How does it make money? What do you get, and what do you give? Then decide: keep it, adjust it, or leave it, and explain why.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who adjusts or drops a service after weighing what it takes, or explains the trade-off.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"How do the free apps we use make money? Is the trade worth it?"</em></div></div>
+        </article>
+        <article class="tc-card wellbeing">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
+          <h4>I use technology in ways that strengthen my connections and my learning.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Digital wellness isn't only avoiding harm. Technology can support friendships, learning, creativity, and community. Identifying the uses that genuinely strengthen their lives helps students do more of what helps and less of what doesn't.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> collaborative projects, research, and creative tools. <strong>In life:</strong> staying in touch with friends and family, pursuing interests, and joining communities.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students list their technology uses and sort them: which leave me more connected or capable, and which leave me drained? Each student chooses one use to grow and one to shrink.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who describes a technology use that strengthens their learning or relationships, and chooses it deliberately.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"What do you do online that you're glad about? Is there something we could do together?"</em></div></div>
+        </article>
+      </div>
+    </details>
+
+    <details class="tc-accordion" id="cw-11">
+      <summary>
+        <span class="tc-grade-num">Grade 11</span>
+        <span class="tc-grade-focus">A presence with purpose, rights and remedies, choosing people</span>
+        <span class="tc-chevron">▾</span>
+      </summary>
+      <div class="tc-detail">
+        <article class="tc-card identity">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
+          <h4>I build a presence that reflects what I care about.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">By eleventh grade, students can move from avoiding harm to building a presence on purpose: sharing work, joining communities, contributing to causes. Connecting online presence to what they care about, Layer 2's Care, turns a digital footprint into evidence of who they are becoming.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> portfolios, published projects, and work shared beyond the classroom. <strong>In life:</strong> profiles, creative work, volunteering, and communities of interest.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students name something they care about and plan one way their online presence could reflect it: sharing a project, contributing to a community, highlighting their work. Discuss what makes a presence authentic rather than performed.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who shares work or takes part in a community connected to something they care about.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"What do you care about that you'd want people to see online?"</em></div></div>
+        </article>
+        <article class="tc-card privacy">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
+          <h4>I know how to report harm, remove content, and request my data.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Students have more tools to protect themselves than they usually realize: platform reporting systems, content removal processes, and, in California, legal rights to request and delete the personal information companies hold. Knowing these tools and how to use them turns privacy from worry into action.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> reporting problems with school tools. <strong>In life:</strong> reporting harassment, removing harmful content, and requesting data from companies.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students find and walk through the report and removal processes on a platform they use, and look up how to request or delete their data from one company. Share what they found.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who reports harm, requests removal, or makes a data request, or helps someone else do so.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"If something harmful about you ended up online, do you know how to get it removed?"</em></div></div>
+        </article>
+        <article class="tc-card wellbeing">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
+          <h4>I choose human connection when that's what I actually need.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Older teens can turn to screens, including AI companions designed to feel like relationships, when what they need is people. Building on Grade 6's distinction between talking with an AI and a relationship with a person, this statement moves from understanding to choosing: recognizing the need for human connection and acting on it.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> choosing collaboration or conversation, or asking a teacher for help when stuck. <strong>In life:</strong> reaching out to friends, family, or mentors when lonely or struggling, rather than only scrolling or chatting with AI.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">When students describe relying on an AI tool for support, advice, or company, don't discourage the tool itself. Ask what talking to a person about the same thing would require that a machine doesn't: risk, patience, the chance of hearing something you didn't want to hear. Then make space for each student to plan one human connection they'll act on, and treat choosing that conversation, when it's warranted, as a choice worth naming.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who reaches out to a person when struggling, or describes choosing human connection over a screen.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"When you're stressed, who do you talk to? Can I be one of those people?"</em></div></div>
+        </article>
+      </div>
+    </details>
+
+    <details class="tc-accordion" id="cw-12">
+      <summary>
+        <span class="tc-grade-num">Grade 12</span>
+        <span class="tc-grade-focus">Community influence, privacy advocacy, a digital life plan</span>
+        <span class="tc-chevron">▾</span>
+      </summary>
+      <div class="tc-detail">
+        <article class="tc-card identity">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Identity &amp; Presence</span></div>
+          <h4>I consider the influence I have on the communities I'm part of.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Seniors hold real influence: on younger students, in online communities, and through what they create and share. Recognizing that influence and using it responsibly prepares them for adulthood, when their presence shapes communities and not only their own reputation.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> mentoring younger students, leading discussions, and publishing work. <strong>In life:</strong> online communities, social platforms, and the people who follow or look up to them.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students map the communities they belong to, online and off, and ask: who is influenced by what I share or say? What kind of influence do I want to have? Each student takes one action to use that influence well.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who uses their influence to support a community or younger students.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Who looks up to you? What do you hope they learn from you?"</em></div></div>
+        </article>
+        <article class="tc-card privacy">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Privacy &amp; Agency</span></div>
+          <h4>I can advocate for privacy for my community, not just for myself.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">Privacy is not only individual: decisions by schools, companies, and governments affect whole communities, often most of all the people with the least power. Seniors approaching voting age can understand privacy as a civic issue and advocate for practices that protect others.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> school technology and data policies. <strong>In life:</strong> civic issues like surveillance, data rights, and protections for children and other vulnerable groups.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students research a privacy issue affecting their school or community and propose a change, in a letter to a school board, a company, or an elected official.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who raises a privacy concern on behalf of others, or takes part in advocacy.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"Are there privacy issues in our community that concern you?"</em></div></div>
+        </article>
+        <article class="tc-card wellbeing">
+          <div class="tc-card-header"><div class="tc-card-dot"></div><span class="tc-card-cat">Wellbeing &amp; Intentionality</span></div>
+          <h4>I design my own digital life plan for after high school.</h4>
+          <div class="tc-row"><div class="tc-label">Why It Matters</div><div class="tc-content">After graduation, school phone policies, family limits, and teacher guidance fall away. Seniors need to own their technology habits, sleep, attention, relationships, and wellbeing, as independent adults.</div></div>
+          <div class="tc-row"><div class="tc-label">In Class and In Life</div><div class="tc-content"><strong>In class:</strong> planning college or work routines that involve technology. <strong>In life:</strong> managing devices, social media, and AI tools without outside structure.</div></div>
+          <div class="tc-row"><div class="tc-label">Teaching Move</div><div class="tc-content">Have students write a personal digital life plan: habits to keep, change, or start; how they'll protect sleep and attention; where they'll find connection and support. Revisit it before graduation.</div></div>
+          <div class="tc-row"><div class="tc-label">Encouraging Evidence</div><div class="tc-content">A student who articulates their own plan and begins following it.</div></div>
+          <div class="tc-row"><div class="tc-label">Family Conversation</div><div class="tc-content"><em>"When you leave home, what do you want your relationship with technology to look like?"</em></div></div>
         </article>
       </div>
     </details>
@@ -4311,149 +4652,113 @@ p { margin-bottom: 16px; line-height: 1.75; }
 
       <div class="ts-content" style="padding:32px 36px;">
 
-        <!-- STEP 0 -->
+        <!-- STEP 1: MY LESSON -->
         <div class="ts-block" style="background:#f0f4ff; border-radius:var(--radius-sm); padding:20px 24px; margin-bottom:24px;">
           <div class="ts-bar-light" style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-            <span style="background:var(--navy); color:white; font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px;">Step 0</span>
-            <span style="font-size:1rem; font-weight:700; color:var(--navy);">Start Here — Your Existing Lesson</span>
+            <span style="background:var(--navy); color:white; font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px;">Step 1</span>
+            <span style="font-size:1rem; font-weight:700; color:var(--navy);">My Lesson — Start With What You Already Teach</span>
           </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div style="display:grid; grid-template-columns:160px 1fr; gap:16px; margin-bottom:16px;">
             <div>
-              <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">Lesson / Unit Topic or Focus:</label>
+              <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">Grade:</label>
+              <select id="ts-grade" onchange="tsRender()" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:9px 10px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); background:white;"><option value="">Choose…</option><option value="k">Kindergarten</option><option value="1">Grade 1</option><option value="2">Grade 2</option><option value="3">Grade 3</option><option value="4">Grade 4</option><option value="5">Grade 5</option><option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8">Grade 8</option><option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option></select>
+              <div class="ts-print-val ts-print-grade"></div>
+            </div>
+            <div>
+              <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">Lesson / unit topic or focus:</label>
               <textarea rows="2" placeholder="What are you teaching?" class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
             </div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
             <div>
               <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">What are students already doing?</label>
               <textarea rows="2" placeholder="Current activity or task..." class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
             </div>
+            <div>
+              <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">What stays the same?</label>
+              <textarea rows="2" placeholder="What already works and won't change..." class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
+            </div>
           </div>
         </div>
 
-        <!-- STEP 1 -->
+        <!-- STEP 2: CHOOSE 1-3 -->
         <div class="ts-block" style="border:1px solid var(--rule); border-radius:var(--radius-sm); margin-bottom:24px; overflow:hidden;">
           <div class="ts-bar" style="background:var(--navy); padding:14px 24px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-            <span style="background:white; color:var(--navy); font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px;">Step 1</span>
-            <span style="font-size:1rem; font-weight:700; color:white;">Choose Your Focus</span>
-            <span style="font-size:0.85rem; color:rgba(255,255,255,0.55); font-style:italic;">(Select 1–3 per lesson — not all 9 at once)</span>
+            <span style="background:white; color:var(--navy); font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px;">Step 2</span>
+            <span style="font-size:1rem; font-weight:700; color:white;">Choose 1–3</span>
+            <span style="font-size:0.85rem; color:rgba(255,255,255,0.6); font-style:italic;">Choose a grade in Step 1 to see that grade's nine statements</span>
           </div>
           <div style="display:grid; grid-template-columns:1fr 1fr 1fr;">
             <div class="ts-focuscol" style="padding:20px 24px; border-right:1px solid var(--rule);">
               <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:white; background:var(--blue); padding:6px 12px; border-radius:4px; margin-bottom:16px;">Layer 1 — Converging Literacies</p>
-              <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
-                <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">INFORMATION</p><p class="ts-hide-print" style="font-size:0.78rem; color:var(--ink-light); font-style:italic;">Converging Literacies</p><p style="font-size:0.82rem; color:var(--ink-mid);">Verify what's true</p></div>
+              <label class="ts-focus-item" data-el="info" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
+                <input type="checkbox" class="ts-pick" value="info" onchange="tsRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">INFORMATION</p><p class="ts-stmt" data-generic="Verify what's true" style="font-size:0.82rem; color:var(--ink-mid);">Verify what's true</p></div>
               </label>
-              <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
-                <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">MEDIA</p><p class="ts-hide-print" style="font-size:0.78rem; color:var(--ink-light); font-style:italic;">Converging Literacies</p><p style="font-size:0.82rem; color:var(--ink-mid);">Analyze why it was made</p></div>
+              <label class="ts-focus-item" data-el="media" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
+                <input type="checkbox" class="ts-pick" value="media" onchange="tsRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">MEDIA</p><p class="ts-stmt" data-generic="Analyze who made it, why, and for whom" style="font-size:0.82rem; color:var(--ink-mid);">Analyze who made it, why, and for whom</p></div>
               </label>
-              <label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer;">
-                <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">AI</p><p class="ts-hide-print" style="font-size:0.78rem; color:var(--ink-light); font-style:italic;">Converging Literacies</p><p style="font-size:0.82rem; color:var(--ink-mid);">Interact with or evaluate AI</p></div>
+              <label class="ts-focus-item" data-el="ai" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
+                <input type="checkbox" class="ts-pick" value="ai" onchange="tsRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--blue);">AI</p><p class="ts-stmt" data-generic="Understand and evaluate AI" style="font-size:0.82rem; color:var(--ink-mid);">Understand and evaluate AI</p></div>
               </label>
             </div>
             <div class="ts-focuscol" style="padding:20px 24px; border-right:1px solid var(--rule);">
               <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:white; background:var(--green); padding:6px 12px; border-radius:4px; margin-bottom:16px;">Layer 2 — Human-Centered Capacities</p>
-              <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
-                <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">CARE</p><p style="font-size:0.82rem; color:var(--ink-mid);">What matters, and why</p></div>
+              <label class="ts-focus-item" data-el="care" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
+                <input type="checkbox" class="ts-pick" value="care" onchange="tsRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">CARE</p><p class="ts-stmt" data-generic="What matters, and why" style="font-size:0.82rem; color:var(--ink-mid);">What matters, and why</p></div>
               </label>
-              <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
-                <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">CURIOSITY</p><p style="font-size:0.82rem; color:var(--ink-mid);">Ask, and keep asking</p></div>
+              <label class="ts-focus-item" data-el="curiosity" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
+                <input type="checkbox" class="ts-pick" value="curiosity" onchange="tsRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">CURIOSITY</p><p class="ts-stmt" data-generic="Ask, and keep asking" style="font-size:0.82rem; color:var(--ink-mid);">Ask, and keep asking</p></div>
               </label>
-              <label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer;">
-                <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">CONNECTION</p><p style="font-size:0.82rem; color:var(--ink-mid);">Relevance to self and others</p></div>
+              <label class="ts-focus-item" data-el="connection" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
+                <input type="checkbox" class="ts-pick" value="connection" onchange="tsRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--green);">CONNECTION</p><p class="ts-stmt" data-generic="Understand others and their perspectives" style="font-size:0.82rem; color:var(--ink-mid);">Understand others and their perspectives</p></div>
               </label>
             </div>
             <div class="ts-focuscol" style="padding:20px 24px;">
               <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:white; background:var(--purple); padding:6px 12px; border-radius:4px; margin-bottom:16px;">Layer 3 — Connected World Responsibilities</p>
-              <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
-                <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">IDENTITY &amp; PRESENCE</p><p style="font-size:0.82rem; color:var(--ink-mid);">Represent yourself responsibly</p></div>
+              <label class="ts-focus-item" data-el="identity" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
+                <input type="checkbox" class="ts-pick" value="identity" onchange="tsRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">IDENTITY &amp; PRESENCE</p><p class="ts-stmt" data-generic="Who you are online, including how you treat others" style="font-size:0.82rem; color:var(--ink-mid);">Who you are online, including how you treat others</p></div>
               </label>
-              <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
-                <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">PRIVACY &amp; AGENCY</p><p style="font-size:0.82rem; color:var(--ink-mid);">Informed choices about personal info</p></div>
+              <label class="ts-focus-item" data-el="privacy" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
+                <input type="checkbox" class="ts-pick" value="privacy" onchange="tsRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">PRIVACY &amp; AGENCY</p><p class="ts-stmt" data-generic="Protecting your information and other people's" style="font-size:0.82rem; color:var(--ink-mid);">Protecting your information and other people's</p></div>
               </label>
-              <label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer;">
-                <input type="checkbox" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
-                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">WELLBEING &amp; INTENTIONALITY</p><p style="font-size:0.82rem; color:var(--ink-mid);">Use tech with awareness and purpose</p></div>
+              <label class="ts-focus-item" data-el="wellbeing" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; cursor:pointer;">
+                <input type="checkbox" class="ts-pick" value="wellbeing" onchange="tsRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
+                <div><p style="font-size:0.88rem; font-weight:700; color:var(--purple);">WELLBEING &amp; INTENTIONALITY</p><p class="ts-stmt" data-generic="Using technology with awareness and purpose" style="font-size:0.82rem; color:var(--ink-mid);">Using technology with awareness and purpose</p></div>
               </label>
             </div>
           </div>
+          <p id="ts-many" class="no-print" style="display:none; padding:10px 24px; background:#fffbeb; font-size:0.82rem; color:var(--amber); border-top:1px solid var(--rule);">More than three chosen. Consider saving some for another lesson: depth over coverage.</p>
         </div>
 
-        <!-- STEP 2 -->
+        <!-- STEP 3: MY ONE SMALL SHIFT -->
         <div class="ts-block" style="border:1px solid var(--rule); border-radius:var(--radius-sm); margin-bottom:24px; overflow:hidden;">
           <div class="ts-bar" style="background:var(--navy); padding:14px 24px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-            <span style="background:white; color:var(--navy); font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px;">Step 2</span>
-            <span style="font-size:1rem; font-weight:700; color:white;">Make a Small Shift <span style="font-weight:400; font-style:italic; color:rgba(255,255,255,0.6);">(This Is the Work)</span></span>
-            <span style="font-size:0.85rem; color:rgba(255,255,255,0.5); margin-left:auto; font-style:italic;">Keep it small. If it feels like a new lesson, it's too much.</span>
+            <span style="background:white; color:var(--navy); font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px;">Step 3</span>
+            <span style="font-size:1rem; font-weight:700; color:white;">My One Small Shift</span>
+            <span style="font-size:0.85rem; color:rgba(255,255,255,0.6); font-style:italic;">Keep it small. If it feels like a new lesson, it's too much.</span>
           </div>
-          <div>
-            <div style="display:grid; grid-template-columns:1fr 2fr; border-bottom:1px solid var(--rule);">
-              <div style="padding:10px 20px; background:var(--cream); border-right:1px solid var(--rule);"><p style="font-size:0.8rem; font-weight:700; color:var(--ink-mid);">Focus Area (from Step 1)</p></div>
-              <div style="padding:10px 20px; background:var(--cream);"><p style="font-size:0.8rem; font-weight:700; color:var(--ink-mid);">What is one specific thing students will DO?</p></div>
-            </div>
-            <div style="display:grid; grid-template-columns:1fr 2fr; border-bottom:1px solid var(--rule);">
-              <div style="padding:10px 20px; border-right:1px solid var(--rule); display:flex; align-items:center; gap:10px;">
-                <span style="font-size:0.85rem; font-weight:700; color:var(--ink-light);">1.</span>
-                <input type="text" placeholder="Focus area..." style="width:100%; border:none; outline:none; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); background:transparent;">
-              </div>
-              <div style="padding:10px 20px;"><input type="text" placeholder="Students will..." style="width:100%; border:none; outline:none; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); background:transparent;"></div>
-            </div>
-            <div style="display:grid; grid-template-columns:1fr 2fr; border-bottom:1px solid var(--rule);">
-              <div style="padding:10px 20px; border-right:1px solid var(--rule); display:flex; align-items:center; gap:10px;">
-                <span style="font-size:0.85rem; font-weight:700; color:var(--ink-light);">2.</span>
-                <input type="text" placeholder="Focus area..." style="width:100%; border:none; outline:none; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); background:transparent;">
-              </div>
-              <div style="padding:10px 20px;"><input type="text" placeholder="Students will..." style="width:100%; border:none; outline:none; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); background:transparent;"></div>
-            </div>
-            <div style="display:grid; grid-template-columns:1fr 2fr;">
-              <div style="padding:10px 20px; border-right:1px solid var(--rule); display:flex; align-items:center; gap:10px;">
-                <span style="font-size:0.85rem; font-weight:700; color:var(--ink-light);">3.</span>
-                <input type="text" placeholder="Focus area..." style="width:100%; border:none; outline:none; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); background:transparent;">
-              </div>
-              <div style="padding:10px 20px;"><input type="text" placeholder="Students will..." style="width:100%; border:none; outline:none; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); background:transparent;"></div>
-            </div>
-          </div>
+          <div id="ts-shift" style="padding:20px 24px;"></div>
         </div>
 
-        <!-- STEPS 3 & 4 -->
-        <div class="ts-block" style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:24px;">
-          <div style="border:2px solid var(--green); border-radius:var(--radius-sm); overflow:hidden;">
-            <div class="ts-bar" style="background:var(--green); padding:12px 20px; display:flex; align-items:center; gap:10px;">
-              <span style="background:white; color:var(--green); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border-radius:999px;">Step 3</span>
-              <span style="font-size:0.9rem; font-weight:700; color:white;">Add One Caring and Curious Moment</span>
-            </div>
-            <div style="padding:18px 20px;">
-              <p style="font-size:0.82rem; color:var(--ink-mid); margin-bottom:12px;">At one point, students will:</p>
-              <div style="display:flex; gap:20px; flex-wrap:wrap; margin-bottom:16px;">
-                <label style="display:flex; gap:8px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--green); width:15px; height:15px;"> Question a claim</label>
-                <label style="display:flex; gap:8px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--green); width:15px; height:15px;"> Compare perspectives</label>
-                <label style="display:flex; gap:8px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--green); width:15px; height:15px;"> Investigate an idea</label>
-              </div>
-              <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">What will this look like?</label>
-              <textarea rows="3" placeholder="Describe the specific moment..." class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
-            </div>
+        <!-- STEP 4: WHAT I'LL NOTICE -->
+        <div class="ts-block" style="border:1px solid var(--rule); border-radius:var(--radius-sm); margin-bottom:24px; overflow:hidden;">
+          <div class="ts-bar" style="background:var(--navy); padding:14px 24px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <span style="background:white; color:var(--navy); font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px;">Step 4</span>
+            <span style="font-size:1rem; font-weight:700; color:white;">What I'll Notice</span>
+            <span style="font-size:0.85rem; color:rgba(255,255,255,0.6); font-style:italic;">What might students say or do if this is working?</span>
           </div>
-          <div style="border:2px solid var(--purple); border-radius:var(--radius-sm); overflow:hidden;">
-            <div class="ts-bar" style="background:var(--purple); padding:12px 20px; display:flex; align-items:center; gap:10px;">
-              <span style="background:white; color:var(--purple); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border-radius:999px;">Step 4</span>
-              <span style="font-size:0.9rem; font-weight:700; color:white;">Protect What Already Works</span>
-            </div>
-            <div style="padding:18px 20px;">
-              <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">What stays the same?</label>
-              <textarea rows="2" placeholder="What you are keeping from the original lesson..." class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5; margin-bottom:14px;"></textarea>
-              <label style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">What is the one change you are making?</label>
-              <textarea rows="2" placeholder="The single shift you are adding..." class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
-            </div>
-          </div>
+          <div id="ts-notice" style="padding:20px 24px;"></div>
         </div>
 
-        <!-- TEACHER-LIBRARIAN PARTNERSHIP -->
+        <!-- OPTIONAL: PARTNERS AND FAMILIES -->
         <div class="ts-block" style="background:#fffbeb; border:1px solid #fcd34d; border-radius:var(--radius-sm); padding:18px 24px; margin-bottom:24px;">
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
             <span style="font-size:1.2rem;">🤝</span>
@@ -4464,27 +4769,29 @@ p { margin-bottom: 16px; line-height: 1.75; }
             <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> Source curation</label>
             <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> Research strategy (Information)</label>
             <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> Media analysis (Media)</label>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> AI use / evaluation (AI)</label>
+            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> AI understanding and evaluation (AI)</label>
+            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> Digital citizenship and wellbeing (Layer 3)</label>
             <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.83rem; color:var(--ink);"><input type="checkbox" style="accent-color:var(--amber); width:14px; height:14px;"> Co-teaching support</label>
           </div>
+          <div id="ts-family" style="display:none; margin-top:16px; padding-top:14px; border-top:1px dashed #fcd34d;"></div>
         </div>
 
         <!-- QUICK REMINDERS -->
-        <div class="ts-block" style="background:var(--navy); border-radius:var(--radius-sm); padding:18px 24px;">
+        <div class="ts-block ts-reminders" style="background:var(--navy); border-radius:var(--radius-sm); padding:18px 24px;">
           <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:14px;">Quick Reminders</p>
           <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:16px;">
             <div style="text-align:center;"><p style="font-size:1.3rem; margin-bottom:6px;">🎯</p><p style="font-size:0.78rem; color:rgba(255,255,255,0.8); line-height:1.5;"><strong style="color:white;">Start with your lesson,</strong> not the framework.</p></div>
             <div style="text-align:center;"><p style="font-size:1.3rem; margin-bottom:6px;">✓</p><p style="font-size:0.78rem; color:rgba(255,255,255,0.8); line-height:1.5;"><strong style="color:white;">Choose 1–3,</strong> not all.</p></div>
             <div style="text-align:center;"><p style="font-size:1.3rem; margin-bottom:6px;">→</p><p style="font-size:0.78rem; color:rgba(255,255,255,0.8); line-height:1.5;"><strong style="color:white;">Make one intentional shift.</strong></p></div>
-            <div style="text-align:center;"><p style="font-size:1.3rem; margin-bottom:6px;">👤</p><p style="font-size:0.78rem; color:rgba(255,255,255,0.8); line-height:1.5;"><strong style="color:white;">Depth</strong> over coverage.</p></div>
+            <div style="text-align:center;"><p style="font-size:1.3rem; margin-bottom:6px;">👀</p><p style="font-size:0.78rem; color:rgba(255,255,255,0.8); line-height:1.5;"><strong style="color:white;">Notice</strong> what changes.</p></div>
             <div style="text-align:center; background:rgba(255,255,255,0.06); border-radius:6px; padding:10px;"><p style="font-size:0.78rem; color:rgba(255,255,255,0.8); line-height:1.5;"><strong style="color:#fcd34d;">Small shifts. Big impact.</strong><br>The Caring and Curious difference in every lesson.</p></div>
           </div>
         </div>
 
         <!-- PRINT / CLEAR BUTTONS -->
         <div class="no-print" style="display:flex; gap:12px; justify-content:flex-end; margin-top:20px;">
-          <button onclick="const s=document.getElementById('teacher-think-sheet');s.querySelectorAll('input[type=text],textarea').forEach(i=>i.value='');s.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);" style="background:white; border:1px solid var(--rule); color:var(--ink-mid); font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">Clear</button>
-          <button onclick="printOnly('teacher-think-sheet', true);" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Think Sheet</button>
+          <button onclick="tsClear();" style="background:white; border:1px solid var(--rule); color:var(--ink-mid); font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">Clear</button>
+          <button onclick="tsPreparePrint(); printOnly('teacher-think-sheet', true);" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Think Sheet</button>
         </div>
 
       </div>
@@ -5506,7 +5813,7 @@ p { margin-bottom: 16px; line-height: 1.75; }
         <div class="cov-row"><span class="cov-dot cross"></span><div><div class="cov-row-title">Access</div><div class="cov-row-note">Present but unnamed, implicit in the K through 2 essentials and the Emerging Creator band.</div></div></div>
         <div class="cov-row"><span class="cov-dot cross"></span><div><div class="cov-row-title">Action, civic participation and advocacy</div><div class="cov-row-note">Partially carried by Layer 3's Identity &amp; Presence, through participation and contribution, framed as personal identity rather than public advocacy.</div></div></div>
         <div class="cov-row"><span class="cov-dot cross"></span><div><div class="cov-row-title">Media economics and profit motive</div><div class="cov-row-note">Not named within Media, but the mechanism is taught in Layer 3's Privacy &amp; Agency, Gr6 through 8, through tracking and data collection.</div></div></div>
-        <div class="cov-row"><span class="cov-dot cross"></span><div><div class="cov-row-title">Media and self-perception, wellbeing</div><div class="cov-row-note">Not in Media, but squarely covered by Layer 3's Wellbeing &amp; Intentionality across all four grade bands.</div></div></div>
+        <div class="cov-row"><span class="cov-dot cross"></span><div><div class="cov-row-title">Media and self-perception, wellbeing</div><div class="cov-row-note">Not in Media, but squarely covered by Layer 3's Wellbeing &amp; Intentionality at every grade, K through 12.</div></div></div>
         <div class="cov-row"><span class="cov-dot cross"></span><div><div class="cov-row-title">Audience interpretation</div><div class="cov-row-note">Begun at Gr3, where students ask who a message was made for. How different audiences construct different meanings from the same message is not yet revisited at older grades.</div></div></div>
         <div class="cov-row"><span class="cov-dot open"></span><div><div class="cov-row-title">Genre literacy at older grades</div><div class="cov-row-note">News versus opinion versus satire is present in spirit at K through 3, but not revisited at an age where it matters more.</div></div></div>
       </div>
@@ -5518,7 +5825,7 @@ p { margin-bottom: 16px; line-height: 1.75; }
           <h3>AI4K12's Five Big Ideas</h3>
           <div class="cov-source">Perception, Representation &amp; Reasoning, Learning, Natural Interaction, Societal Impact</div>
         </div>
-        <div class="cov-row"><span class="cov-dot direct"></span><div><div class="cov-row-title">Societal Impact</div><div class="cov-row-note">Three of the thirteen essentials, Gr8, Gr11, and Gr12: bias, benefits and harm and environment, and oversight. Data as labor is carried by Layer 3's Privacy &amp; Agency at Grades 9 through 12.</div></div></div>
+        <div class="cov-row"><span class="cov-dot direct"></span><div><div class="cov-row-title">Societal Impact</div><div class="cov-row-note">Three of the thirteen essentials, Gr8, Gr11, and Gr12: bias, benefits and harm and environment, and oversight. Data as labor is carried by Layer 3's Privacy &amp; Agency at Grade 10.</div></div></div>
         <div class="cov-row"><span class="cov-dot direct"></span><div><div class="cov-row-title">Natural Interaction</div><div class="cov-row-note">K's awareness that computers can make convincing pictures and voices, Gr3's describing AI without calling it a person, Gr7's deliberate prompts and intent.</div></div></div>
         <div class="cov-row"><span class="cov-dot cross"></span><div><div class="cov-row-title">Learning, how machines learn from data</div><div class="cov-row-note">Seeded at Gr3, where students learn that AI predicts from patterns rather than thinking, and at Gr4, where they learn it is trained on large amounts of text. Bias, errors, and data as labor all depend on it, but training on data still has no essential of its own.</div></div></div>
         <div class="cov-row"><span class="cov-dot open"></span><div><div class="cov-row-title">Representation &amp; Reasoning</div><div class="cov-row-note">Thin across the whole companion, and arguably a reasonable gap given the companion's stated digital environment scope.</div></div></div>
@@ -5723,6 +6030,105 @@ p { margin-bottom: 16px; line-height: 1.75; }
   // so the rest of the document is removed from the print flow
   // entirely (not just hidden), then restore it after printing.
   var __printIsolated = null;
+
+  /* ---------- Teacher Think Sheet ---------- */
+  var TS_EL = {
+    info:{name:'Information', pre:'tc', ag:true}, media:{name:'Media', pre:'tc', ag:true}, ai:{name:'AI', pre:'tc', ag:true},
+    care:{name:'Care', pre:'hc'}, curiosity:{name:'Curiosity', pre:'hc'}, connection:{name:'Connection', pre:'hc'},
+    identity:{name:'Identity & Presence', pre:'cw'}, privacy:{name:'Privacy & Agency', pre:'cw'}, wellbeing:{name:'Wellbeing & Intentionality', pre:'cw'}
+  };
+  var tsStore = {};
+  function tsRow(card, label, labelCls, contentCls) {
+    if (!card) return '';
+    var rows = card.querySelectorAll('.' + labelCls);
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i].textContent.trim().replace(/["“”]/g,'').toLowerCase() === label.toLowerCase()) {
+        var c = rows[i].parentNode.querySelector('.' + contentCls);
+        return c ? c.textContent.trim() : '';
+      }
+    }
+    return '';
+  }
+  function tsInfo(el, g) {
+    var d = TS_EL[el]; if (!g) return null;
+    var card = document.querySelector('#' + d.pre + '-' + g + ' article.tc-card.' + el);
+    if (!card) return null;
+    var h = card.querySelector('h4');
+    var info = { stmt: h ? h.textContent.trim() : '', move: tsRow(card, 'Teaching Move', 'tc-label', 'tc-content') };
+    if (d.ag) {
+      var ag = document.querySelector('#ag-' + g + ' article.ag-card.' + el);
+      info.notice = tsRow(ag, 'I can Statement', 'ag-label', 'ag-content');
+    } else {
+      info.notice = tsRow(card, 'Encouraging Evidence', 'tc-label', 'tc-content');
+    }
+    if (d.pre === 'cw') info.family = tsRow(card, 'Family Conversation', 'tc-label', 'tc-content');
+    return info;
+  }
+  function tsEsc(s) { return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function tsSave() {
+    document.querySelectorAll('#teacher-think-sheet [data-store]').forEach(function(t){ tsStore[t.getAttribute('data-store')] = t.value; });
+  }
+  var TS_TA = 'class="ts-textarea" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:8px 10px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"';
+  function tsRender() {
+    tsSave();
+    var sheet = document.getElementById('teacher-think-sheet'); if (!sheet) return;
+    var g = document.getElementById('ts-grade').value;
+    var picks = [];
+    sheet.querySelectorAll('.ts-focus-item').forEach(function(item){
+      var el = item.getAttribute('data-el');
+      var p = item.querySelector('.ts-stmt');
+      var info = tsInfo(el, g);
+      p.textContent = info && info.stmt ? info.stmt : p.getAttribute('data-generic');
+      var cb = item.querySelector('.ts-pick');
+      item.classList.toggle('ts-picked', cb.checked);
+      if (cb.checked) picks.push(el);
+    });
+    sheet.classList.toggle('ts-has-picks', picks.length > 0);
+    document.getElementById('ts-many').style.display = picks.length > 3 ? 'block' : 'none';
+    var shift = '', notice = '', fam = '';
+    var list = picks.length ? picks : ['_1','_2','_3'];
+    list.forEach(function(el, i){
+      var generic = el.charAt(0) === '_';
+      var info = generic ? null : tsInfo(el, g);
+      var head = generic ? '<p style="font-size:0.8rem; font-weight:600; color:var(--ink-mid); margin-bottom:6px;">Focus: ______________________</p>'
+        : '<p style="font-size:0.8rem; font-weight:700; color:var(--navy); margin-bottom:2px;">' + tsEsc(TS_EL[el].name) + '</p>' + (info && info.stmt ? '<p style="font-size:0.8rem; color:var(--ink-mid); font-style:italic; margin-bottom:6px;">' + tsEsc(info.stmt) + '</p>' : '');
+      var mb = i < list.length - 1 ? 'margin-bottom:16px;' : '';
+      shift += '<div style="' + mb + '">' + head + '<label style="font-size:0.78rem; color:var(--ink-mid); display:block; margin-bottom:4px;">Students will…</label><textarea rows="2" data-store="shift-' + el + '" ' + TS_TA + '>' + tsEsc(tsStore['shift-' + el] || '') + '</textarea>' +
+        (info && info.move ? '<p class="ts-hide-print" style="font-size:0.76rem; color:var(--ink-light); line-height:1.5; margin-top:6px;"><strong>Suggested move to adapt or ignore:</strong> ' + tsEsc(info.move) + '</p>' : '') + '</div>';
+      notice += '<div style="' + mb + '">' + (generic ? '' : '<p style="font-size:0.8rem; font-weight:700; color:var(--navy); margin-bottom:4px;">' + tsEsc(TS_EL[el].name) + '</p>') +
+        '<textarea rows="2" data-store="notice-' + el + '" placeholder="I\'ll know it\'s working when a student…" ' + TS_TA + '>' + tsEsc(tsStore['notice-' + el] || '') + '</textarea>' +
+        (info && info.notice ? '<p class="ts-hide-print" style="font-size:0.76rem; color:var(--ink-light); line-height:1.5; margin-top:6px;"><strong>Look for:</strong> ' + tsEsc(info.notice) + '</p>' : '') + '</div>';
+      if (info && info.family) fam += '<label style="display:flex; gap:8px; align-items:flex-start; font-size:0.83rem; color:var(--ink); margin-top:6px;"><input type="checkbox" class="ts-fam" data-store-cb="fam-' + el + '"' + (tsStore['fam-' + el] ? ' checked' : '') + ' onchange="tsStore[\'fam-' + el + '\']=this.checked" style="accent-color:var(--amber); width:14px; height:14px; margin-top:3px;"> <span><strong>' + tsEsc(TS_EL[el].name) + ':</strong> <em>' + tsEsc(info.family) + '</em></span></label>';
+    });
+    document.getElementById('ts-shift').innerHTML = shift;
+    document.getElementById('ts-notice').innerHTML = notice;
+    var fb = document.getElementById('ts-family');
+    if (fam) { fb.innerHTML = '<p style="font-size:0.85rem; font-weight:700; color:var(--amber); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:4px;">🏠 Optional — Family Conversation to Send Home</p>' + fam; fb.style.display = 'block'; }
+    else { fb.innerHTML = ''; fb.style.display = 'none'; }
+  }
+  function tsClear() {
+    var s = document.getElementById('teacher-think-sheet');
+    s.querySelectorAll('textarea').forEach(function(i){ i.value=''; });
+    s.querySelectorAll('input[type=checkbox]').forEach(function(c){ c.checked=false; });
+    document.getElementById('ts-grade').value = '';
+    tsStore = {};
+    tsRender();
+  }
+  function tsPreparePrint() {
+    tsSave();
+    var s = document.getElementById('teacher-think-sheet');
+    s.querySelectorAll('textarea').forEach(function(ta){
+      var v = ta.nextElementSibling;
+      if (!v || !v.classList.contains('ts-print-val')) { v = document.createElement('div'); v.className = 'ts-print-val'; ta.parentNode.insertBefore(v, ta.nextSibling); }
+      v.textContent = ta.value;
+    });
+    var sel = document.getElementById('ts-grade');
+    s.querySelector('.ts-print-grade').textContent = sel.value ? sel.options[sel.selectedIndex].text : '';
+    s.querySelectorAll('.ts-fam').forEach(function(c){ c.closest('label').classList.toggle('ts-fam-off', !c.checked); });
+    s.classList.toggle('ts-no-fam', !s.querySelector('.ts-fam:checked'));
+  }
+  document.addEventListener('DOMContentLoaded', tsRender);
+
   function printOnly(id, compact) {
     var el = document.getElementById(id);
     if (!el) { window.print(); return; }
