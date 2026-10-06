@@ -2152,6 +2152,46 @@ p { margin-bottom: 16px; line-height: 1.75; }
   body.printing-isolated #teacher-think-sheet.ts-print-compact #ts-shift,
   body.printing-isolated #teacher-think-sheet.ts-print-compact #ts-notice { padding: 6px 12px !important; }
 }
+
+.cs-print-val { display: none; }
+#creator-think-sheet.cs-k2 .cs-question, #creator-think-sheet.cs-k2 label { font-size: 1rem !important; }
+@media print {
+  body.printing-isolated #creator-think-sheet { padding: 10px 14px !important; }
+  body.printing-isolated #creator-think-sheet .cs-hide-print { display: none !important; }
+  body.printing-isolated #creator-think-sheet textarea,
+  body.printing-isolated #creator-think-sheet select { display: none !important; }
+  body.printing-isolated #creator-think-sheet .cs-print-val {
+    display: block !important; min-height: 1.6em; border-bottom: 1px solid #999;
+    white-space: pre-wrap; font-size: 0.85rem; line-height: 1.4; padding: 2px 4px; color: #111;
+  }
+  body.printing-isolated #creator-think-sheet.cs-has-picks .cs-lens-item:not(.cs-picked) { display: none !important; }
+  body.printing-isolated #creator-think-sheet .cs-block { margin-bottom: 10px !important; }
+  body.printing-isolated #creator-think-sheet .cs-golden { display: none !important; }
+  body.printing-isolated #creator-think-sheet .cs-block { break-inside: avoid; }
+  body.printing-isolated #creator-think-sheet.cs-k2 .cs-print-val { font-size: 1rem; min-height: 2em; }
+  body.printing-isolated #creator-think-sheet h3 { margin-bottom: 6px !important; font-size: 1.15rem !important; }
+  body.printing-isolated #creator-think-sheet .cs-bar { padding: 5px 14px !important; }
+  body.printing-isolated #creator-think-sheet .cs-block > div:not(.cs-bar),
+  body.printing-isolated #creator-think-sheet .cs-lenscol,
+  body.printing-isolated #creator-think-sheet #cs-apply { padding: 8px 14px !important; }
+  body.printing-isolated #creator-think-sheet .cs-lens-item { margin-bottom: 4px !important; }
+  body.printing-isolated #creator-think-sheet #cs-apply > div { margin-bottom: 8px !important; }
+  body.printing-isolated #creator-think-sheet .cs-ai-off { display: none !important; }
+  body.printing-isolated #creator-think-sheet .cs-col-empty { display: none !important; }
+  body.printing-isolated #creator-think-sheet #cs-istmt { font-size: 0.9rem !important; }
+  body.printing-isolated #creator-think-sheet #cs-share-label { font-size: 0.8rem !important; }
+  body.printing-isolated #creator-think-sheet #cs-share-label + label,
+  body.printing-isolated #creator-think-sheet #cs-share-family { font-size: 0.8rem !important; }
+  body.printing-isolated #creator-think-sheet #cs-share-label { margin: 0 !important; }
+  body.printing-isolated #creator-think-sheet .cs-share { margin-top: 6px !important; padding-top: 6px !important; }
+  body.printing-isolated #creator-think-sheet .cs-question { font-size: 0.82rem !important; margin-bottom: 2px !important; }
+  body.printing-isolated #creator-think-sheet.cs-has-picks .cs-lensgrid { display: flex !important; gap: 24px; }
+  body.printing-isolated #creator-think-sheet #cs-ai-std label { padding: 5px 8px !important; font-size: 0.76rem !important; }
+  body.printing-isolated #creator-think-sheet #cs-ai-std > div { margin-bottom: 6px !important; }
+  body.printing-isolated #creator-think-sheet .cs-desc { font-size: 0.72rem !important; }
+  body.printing-isolated #creator-think-sheet { margin-bottom: 0 !important; }
+  body.printing-isolated #creator-think-sheet .cs-lenscol p { margin-bottom: 6px !important; }
+}
 </style>
 </head>
 <body>
@@ -2206,6 +2246,7 @@ p { margin-bottom: 16px; line-height: 1.75; }
       <a href="#hc-teaching" class="nav-primary">Human-Centered Teaching Companion</a>
       <a href="#cw-teaching" class="nav-primary">Connected World Teaching Companion</a>
       <a href="#think-sheet-section" class="nav-primary">Teacher Think Sheet</a>
+      <a href="#creator-think-sheet" class="nav-primary">Creator Think Sheet</a>
       <a href="#creator" class="nav-primary">The Creator's Golden Rule</a>
       <a href="https://warrenmedia777.github.io/IAMGradeLevelPages/" class="nav-primary" target="_blank" rel="noopener">Grade Level One Pagers</a>
     </nav>
@@ -4855,6 +4896,19 @@ p { margin-bottom: 16px; line-height: 1.75; }
       </div>
     </div>
 
+    <!-- PERMISSION AT A GLANCE -->
+    <div style="margin-bottom:40px;">
+      <span class="section-label" style="margin-bottom:12px; display:block;">Permission at a Glance</span>
+      <p style="font-size:1.05rem; color:var(--ink-mid); line-height:1.8; margin-bottom:24px;">Giving credit is about honesty. Permission is about rights. A caring and curious creator needs both, and these four ideas explain most of what students will meet.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:20px;">
+        <div style="background:white; border-radius:var(--radius-md); padding:24px; box-shadow:var(--shadow-sm); border-top:4px solid var(--navy);"><h4 style="font-family:var(--font-display); font-size:1.1rem; color:var(--navy); margin-bottom:8px;">Copyright</h4><p style="font-size:0.9rem; color:var(--ink-mid); line-height:1.7;">Protects a creator's specific expression, such as their words, images, or music, automatically, as soon as it is made. Using it usually requires permission, unless an exception like fair use applies.</p></div>
+        <div style="background:white; border-radius:var(--radius-md); padding:24px; box-shadow:var(--shadow-sm); border-top:4px solid var(--blue);"><h4 style="font-family:var(--font-display); font-size:1.1rem; color:var(--navy); margin-bottom:8px;">Public Domain</h4><p style="font-size:0.9rem; color:var(--ink-mid); line-height:1.7;">Work that is no longer protected by copyright, or never was, such as many older works and most works created by U.S. federal government employees. Anyone may use it, and a caring and curious creator still gives credit.</p></div>
+        <div style="background:white; border-radius:var(--radius-md); padding:24px; box-shadow:var(--shadow-sm); border-top:4px solid var(--green);"><h4 style="font-family:var(--font-display); font-size:1.1rem; color:var(--navy); margin-bottom:8px;">Creative Commons</h4><p style="font-size:0.9rem; color:var(--ink-mid); line-height:1.7;">Free licenses creators use to say in advance how others may use their work. All six licenses require credit (BY), and some add conditions: NonCommercial (NC), ShareAlike (SA), or NoDerivatives (ND). This companion is shared under CC BY-NC-SA 4.0.</p></div>
+        <div style="background:white; border-radius:var(--radius-md); padding:24px; box-shadow:var(--shadow-sm); border-top:4px solid var(--purple);"><h4 style="font-family:var(--font-display); font-size:1.1rem; color:var(--navy); margin-bottom:8px;">Fair Use</h4><p style="font-size:0.9rem; color:var(--ink-mid); line-height:1.7;">A legal judgment that can allow limited use of copyrighted work without permission, for purposes such as commentary, criticism, teaching, or parody. It is weighed case by case. It is a judgment, not a loophole, and giving credit alone does not make a use fair.</p></div>
+      </div>
+      <p style="font-size:0.95rem; color:var(--ink-mid); line-height:1.75; margin-top:20px; padding:16px 20px; background:white; border-radius:var(--radius-sm); border-left:4px solid var(--purple);"><strong>AI and copyright:</strong> The U.S. Copyright Office's current position is that copyright requires human authorship. Purely AI-generated material, including output produced from prompts alone, is not protected, while the human creative contributions in a work are. That makes the three levels above matter beyond honesty: AI-Assisted work keeps its human authorship, and AI-Authored work generally does not.</p>
+    </div>
+
     <!-- THE GOLDEN RULE -->
     <div style="background:var(--navy); border-radius:var(--radius-md); padding:48px; margin-bottom:48px; text-align:center; box-shadow:var(--shadow-md);">
       <p style="font-family:var(--font-body); font-size:0.78rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:16px;">The Creator's Golden Rule</p>
@@ -4930,155 +4984,151 @@ p { margin-bottom: 16px; line-height: 1.75; }
     </div>
 
     <!-- STUDENT THINKING DOCUMENT -->
-    <div id="creator-think-sheet" style="background:white; border-radius:var(--radius-md); padding:48px; box-shadow:var(--shadow-sm); margin-bottom:32px;">
-      <span class="section-label" style="margin-bottom:16px; display:block;">Student Thinking Document</span>
+    <div id="creator-think-sheet" style="scroll-margin-top:96px; background:white; border-radius:var(--radius-md); padding:48px; box-shadow:var(--shadow-sm); margin-bottom:32px;">
+      <span class="section-label cs-hide-print" style="margin-bottom:16px; display:block;">Creator Think Sheet — For Students</span>
       <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:700; color:var(--navy); margin-bottom:12px;">I AM Caring and Curious — A Curious Creator</h3>
-      <p style="font-size:1rem; color:var(--ink-mid); line-height:1.8; margin-bottom:32px;">The Student Thinking Document gives students a structured way to apply the Creator's Lens to their own work before they share, publish, or present. It asks the same questions a caring and curious thinker would ask — turned inward.</p>
+      <p class="cs-hide-print" style="font-size:1rem; color:var(--ink-mid); line-height:1.8; margin-bottom:28px;">The Creator Think Sheet belongs to students. It gives them a way to apply the Creator's Lens to their own work before they share, publish, or present, asking the same questions a caring and curious thinker would ask, turned inward. Choosing a grade adjusts every prompt to that grade band. In Kindergarten through Grade 2, it becomes something a child and a grown-up do together.</p>
 
-      <!-- Step 0 -->
-      <div style="background:var(--navy); border-radius:var(--radius-sm); padding:20px 28px; margin-bottom:20px;">
-        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:8px;">Step 0 — Start Here</p>
-        <p style="font-size:0.95rem; font-weight:600; color:white; margin-bottom:16px;">What are you making or sharing? Who is your audience?</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-          <textarea rows="2" placeholder="What are you making or sharing?" style="width:100%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); border-radius:6px; padding:12px 16px; font-family:var(--font-body); font-size:0.88rem; color:white; resize:vertical; line-height:1.5;"></textarea>
-          <textarea rows="2" placeholder="Who is your audience?" style="width:100%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); border-radius:6px; padding:12px 16px; font-family:var(--font-body); font-size:0.88rem; color:white; resize:vertical; line-height:1.5;"></textarea>
+      <div id="cs-k2-banner" class="cs-hide-print" style="display:none; background:#fffbeb; border:1px solid #fcd34d; border-radius:var(--radius-sm); padding:14px 20px; margin-bottom:18px;">
+        <p style="font-size:0.95rem; font-weight:700; color:var(--amber); margin-bottom:4px;">🏠 Make It Together</p>
+        <p style="font-size:0.88rem; color:var(--ink-mid); line-height:1.6;">This sheet is for a child and a grown-up to do side by side. A grown-up can read each question aloud, and answers can be written, drawn, or told.</p>
+      </div>
+
+      <div class="cs-block" style="border:1px solid var(--rule); border-radius:var(--radius-sm); overflow:hidden; margin-bottom:20px;">
+        <div class="cs-bar" style="background:var(--navy); padding:12px 22px; display:flex; align-items:center; gap:12px;"><span style="background:white; color:var(--navy); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 12px; border-radius:999px;">Step 1</span><span class="cs-bar-title" style="font-size:1rem; font-weight:700; color:white;">Start Here</span></div>
+        <div style="padding:18px 22px;">
+          <div style="display:grid; grid-template-columns:170px 1fr 1fr; gap:14px;">
+            <div><label style="font-size:0.82rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">My grade:</label>
+              <select id="cs-grade" onchange="csRender()" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:9px 10px; font-family:var(--font-body); font-size:0.9rem; color:var(--ink); background:white;"><option value="">Choose…</option><option value="k">Kindergarten</option><option value="1">Grade 1</option><option value="2">Grade 2</option><option value="3">Grade 3</option><option value="4">Grade 4</option><option value="5">Grade 5</option><option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8">Grade 8</option><option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option></select>
+              <div class="cs-print-val cs-print-grade"></div></div>
+            <div><label class="cs-q-make" style="font-size:0.82rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">What am I making or sharing?</label><textarea rows="2" class="cs-ta" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.9rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea></div>
+            <div><label class="cs-q-aud" style="font-size:0.82rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">Who is it for?</label><textarea rows="2" class="cs-ta" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.9rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea></div>
+          </div>
+          <div id="cs-grownup" style="display:none; margin-top:12px;"><label style="font-size:0.82rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">Grown-up who helped me:</label><textarea rows="1" class="cs-ta" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.9rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea></div>
         </div>
       </div>
 
-      <!-- Step 1 -->
-      <div style="border:1px solid var(--rule); border-radius:var(--radius-sm); padding:24px 28px; margin-bottom:20px;">
-        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:12px;">Step 1 — Choose Your Creator's Lens Focus (Select 1–3)</p>
-        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;">
-          <div>
-            <p style="font-size:0.78rem; font-weight:700; color:var(--blue); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Information Integrity</p>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink-mid); margin-bottom:6px;"><input type="checkbox" style="accent-color:var(--blue); width:14px; height:14px;"> Accuracy</label>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink-mid); margin-bottom:6px;"><input type="checkbox" style="accent-color:var(--blue); width:14px; height:14px;"> Expertise</label>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink-mid);"><input type="checkbox" style="accent-color:var(--blue); width:14px; height:14px;"> Attribution</label>
+      <div class="cs-block" style="border:1px solid var(--rule); border-radius:var(--radius-sm); overflow:hidden; margin-bottom:20px;">
+        <div class="cs-bar" style="background:var(--navy); padding:12px 22px; display:flex; align-items:center; gap:12px;"><span style="background:white; color:var(--navy); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 12px; border-radius:999px;">Step 2</span><span class="cs-bar-title" style="font-size:1rem; font-weight:700; color:white;">Choose Your Creator's Lens (1–3)</span></div>
+        <div class="cs-lensgrid" style="display:grid; grid-template-columns:repeat(3,1fr);">
+            <div class="cs-lenscol" style="padding:18px 22px;">
+              <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); border-bottom:2px solid var(--blue); padding-bottom:6px; margin-bottom:14px;">Information Integrity</p>
+              <label class="cs-lens-item" data-lens="accuracy" style="display:flex; gap:9px; align-items:flex-start; margin-bottom:12px; cursor:pointer;">
+                <input type="checkbox" class="cs-pick" value="accuracy" onchange="csRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
+                <span><span style="font-size:0.9rem; font-weight:700; color:var(--ink); display:block;">Accuracy</span><span class="cs-desc" style="font-size:0.8rem; color:var(--ink-mid);">My facts are correct.</span></span>
+              </label>
+              <label class="cs-lens-item" data-lens="expertise" style="display:flex; gap:9px; align-items:flex-start; margin-bottom:12px; cursor:pointer;">
+                <input type="checkbox" class="cs-pick" value="expertise" onchange="csRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
+                <span><span style="font-size:0.9rem; font-weight:700; color:var(--ink); display:block;">Expertise</span><span class="cs-desc" style="font-size:0.8rem; color:var(--ink-mid);">My sources know the topic.</span></span>
+              </label>
+              <label class="cs-lens-item" data-lens="attribution" style="display:flex; gap:9px; align-items:flex-start; margin-bottom:12px; cursor:pointer;">
+                <input type="checkbox" class="cs-pick" value="attribution" onchange="csRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--blue);">
+                <span><span style="font-size:0.9rem; font-weight:700; color:var(--ink); display:block;">Attribution</span><span class="cs-desc" style="font-size:0.8rem; color:var(--ink-mid);">I give credit.</span></span>
+              </label>
+            </div>
+            <div class="cs-lenscol" style="padding:18px 22px;">
+              <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--purple); border-bottom:2px solid var(--purple); padding-bottom:6px; margin-bottom:14px;">AI Transparency</p>
+              <label class="cs-lens-item" data-lens="disclosure" style="display:flex; gap:9px; align-items:flex-start; margin-bottom:12px; cursor:pointer;">
+                <input type="checkbox" class="cs-pick" value="disclosure" onchange="csRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
+                <span><span style="font-size:0.9rem; font-weight:700; color:var(--ink); display:block;">Disclosure</span><span class="cs-desc" style="font-size:0.8rem; color:var(--ink-mid);">I tell how I made it.</span></span>
+              </label>
+              <label class="cs-lens-item" data-lens="verification" style="display:flex; gap:9px; align-items:flex-start; margin-bottom:12px; cursor:pointer;">
+                <input type="checkbox" class="cs-pick" value="verification" onchange="csRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
+                <span><span style="font-size:0.9rem; font-weight:700; color:var(--ink); display:block;">Verification</span><span class="cs-desc" style="font-size:0.8rem; color:var(--ink-mid);">I check what tools tell me.</span></span>
+              </label>
+              <label class="cs-lens-item" data-lens="originality" style="display:flex; gap:9px; align-items:flex-start; margin-bottom:12px; cursor:pointer;">
+                <input type="checkbox" class="cs-pick" value="originality" onchange="csRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--purple);">
+                <span><span style="font-size:0.9rem; font-weight:700; color:var(--ink); display:block;">Originality</span><span class="cs-desc" style="font-size:0.8rem; color:var(--ink-mid);">My own thinking shows.</span></span>
+              </label>
+            </div>
+            <div class="cs-lenscol" style="padding:18px 22px;">
+              <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); border-bottom:2px solid var(--green); padding-bottom:6px; margin-bottom:14px;">Ethical Communication</p>
+              <label class="cs-lens-item" data-lens="honesty" style="display:flex; gap:9px; align-items:flex-start; margin-bottom:12px; cursor:pointer;">
+                <input type="checkbox" class="cs-pick" value="honesty" onchange="csRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
+                <span><span style="font-size:0.9rem; font-weight:700; color:var(--ink); display:block;">Honesty</span><span class="cs-desc" style="font-size:0.8rem; color:var(--ink-mid);">Facts and opinions.</span></span>
+              </label>
+              <label class="cs-lens-item" data-lens="perspective" style="display:flex; gap:9px; align-items:flex-start; margin-bottom:12px; cursor:pointer;">
+                <input type="checkbox" class="cs-pick" value="perspective" onchange="csRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
+                <span><span style="font-size:0.9rem; font-weight:700; color:var(--ink); display:block;">Perspective</span><span class="cs-desc" style="font-size:0.8rem; color:var(--ink-mid);">Other points of view.</span></span>
+              </label>
+              <label class="cs-lens-item" data-lens="permission" style="display:flex; gap:9px; align-items:flex-start; margin-bottom:12px; cursor:pointer;">
+                <input type="checkbox" class="cs-pick" value="permission" onchange="csRender()" style="margin-top:3px; width:16px; height:16px; flex-shrink:0; accent-color:var(--green);">
+                <span><span style="font-size:0.9rem; font-weight:700; color:var(--ink); display:block;">Permission</span><span class="cs-desc" style="font-size:0.8rem; color:var(--ink-mid);">Free to use, and fair to people.</span></span>
+              </label>
+            </div>
+        </div>
+        <p id="cs-many" class="cs-hide-print" style="display:none; padding:8px 22px; background:#fffbeb; font-size:0.82rem; color:var(--amber); border-top:1px solid var(--rule);">More than three? Pick the ones that matter most for this piece of work.</p>
+      </div>
+
+      <div class="cs-block" style="border:1px solid var(--rule); border-radius:var(--radius-sm); overflow:hidden; margin-bottom:20px;">
+        <div class="cs-bar" style="background:var(--navy); padding:12px 22px; display:flex; align-items:center; gap:12px;"><span style="background:white; color:var(--navy); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 12px; border-radius:999px;">Step 3</span><span class="cs-bar-title" style="font-size:1rem; font-weight:700; color:white;">Apply Your Lens</span></div>
+        <div id="cs-apply" style="padding:18px 22px;"></div>
+      </div>
+
+      <div class="cs-block" style="border:1px solid var(--rule); border-radius:var(--radius-sm); overflow:hidden; margin-bottom:20px;">
+        <div class="cs-bar" style="background:var(--navy); padding:12px 22px; display:flex; align-items:center; gap:12px;"><span style="background:white; color:var(--navy); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 12px; border-radius:999px;">Step 4</span><span class="cs-bar-title" style="font-size:1rem; font-weight:700; color:white;">How I Made It</span></div>
+        <div style="padding:18px 22px;">
+          <div id="cs-ai-k2" style="display:none;">
+            <p style="font-size:0.92rem; font-weight:600; color:var(--ink); margin-bottom:8px;">Did a computer help make this?</p>
+            <label style="display:flex; gap:8px; align-items:center; font-size:0.9rem; margin-bottom:6px;"><input type="radio" name="cs-ai-k2" value="no" style="accent-color:var(--navy);"> No, we made it ourselves.</label>
+            <label style="display:flex; gap:8px; align-items:center; font-size:0.9rem; margin-bottom:8px;"><input type="radio" name="cs-ai-k2" value="yes" style="accent-color:var(--navy);"> Yes, a computer helped. Here's how:</label>
+            <textarea rows="1" class="cs-ta" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.9rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
           </div>
-          <div>
-            <p style="font-size:0.78rem; font-weight:700; color:var(--purple); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">AI Transparency</p>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink-mid); margin-bottom:6px;"><input type="checkbox" style="accent-color:var(--purple); width:14px; height:14px;"> Disclosure</label>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink-mid); margin-bottom:6px;"><input type="checkbox" style="accent-color:var(--purple); width:14px; height:14px;"> Verification</label>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink-mid);"><input type="checkbox" style="accent-color:var(--purple); width:14px; height:14px;"> Originality</label>
-          </div>
-          <div>
-            <p style="font-size:0.78rem; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Ethical Communication</p>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink-mid); margin-bottom:6px;"><input type="checkbox" style="accent-color:var(--green); width:14px; height:14px;"> Honesty</label>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink-mid); margin-bottom:6px;"><input type="checkbox" style="accent-color:var(--green); width:14px; height:14px;"> Perspective</label>
-            <label style="display:flex; gap:7px; align-items:center; cursor:pointer; font-size:0.85rem; color:var(--ink-mid);"><input type="checkbox" style="accent-color:var(--green); width:14px; height:14px;"> Copyright</label>
+          <div id="cs-ai-std">
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:12px;">
+              <label style="display:flex; gap:8px; align-items:flex-start; font-size:0.86rem; border:1px solid var(--rule); border-top:3px solid var(--blue); border-radius:6px; padding:10px;"><input type="radio" name="cs-ai" value="1" style="accent-color:var(--blue); margin-top:3px;"> <span><strong>Level 1 — No AI.</strong> All my own work.</span></label>
+              <label style="display:flex; gap:8px; align-items:flex-start; font-size:0.86rem; border:1px solid var(--rule); border-top:3px solid var(--green); border-radius:6px; padding:10px;"><input type="radio" name="cs-ai" value="2" style="accent-color:var(--green); margin-top:3px;"> <span><strong>Level 2 — AI-Assisted.</strong> I did the thinking; AI helped along the way.</span></label>
+              <label style="display:flex; gap:8px; align-items:flex-start; font-size:0.86rem; border:1px solid var(--rule); border-top:3px solid var(--purple); border-radius:6px; padding:10px;"><input type="radio" name="cs-ai" value="3" style="accent-color:var(--purple); margin-top:3px;"> <span><strong>Level 3 — AI-Authored.</strong> AI made the content; I directed and chose.</span></label>
+            </div>
+            <label style="font-size:0.82rem; font-weight:600; color:var(--ink-mid); display:block; margin-bottom:6px;">If AI helped: what did it do, and what did I check?</label>
+            <textarea rows="2" class="cs-ta" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.9rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
           </div>
         </div>
       </div>
 
-      <!-- Step 2 -->
-      <div style="border:1px solid var(--rule); border-radius:var(--radius-sm); padding:24px 28px; margin-bottom:20px;">
-        <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:16px;">Step 2 — Apply the Lens <span style="font-weight:400; text-transform:none; letter-spacing:0;">(This is the work)</span></p>
-        <div style="display:grid; gap:16px;">
-          <div>
-            <p style="font-size:0.88rem; color:var(--ink-mid); margin-bottom:8px;">What is my claim or main message?</p>
-            <textarea rows="2" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
-          </div>
-          <div>
-            <p style="font-size:0.88rem; color:var(--ink-mid); margin-bottom:8px;">What evidence supports it?</p>
-            <textarea rows="2" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
-          </div>
-          <div>
-            <p style="font-size:0.88rem; color:var(--ink-mid); margin-bottom:8px;">Did I use AI? If so, how — and what did I verify?</p>
-            <textarea rows="2" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
-          </div>
-          <div>
-            <p style="font-size:0.88rem; color:var(--ink-mid); margin-bottom:8px;">Whose perspective might be missing?</p>
-            <textarea rows="2" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.88rem; color:var(--ink); resize:vertical; line-height:1.5;"></textarea>
+      <div class="cs-block" style="border:1px solid var(--rule); border-radius:var(--radius-sm); overflow:hidden; margin-bottom:20px;">
+        <div class="cs-bar" style="background:var(--navy); padding:12px 22px; display:flex; align-items:center; gap:12px;"><span style="background:white; color:var(--navy); font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:4px 12px; border-radius:999px;">Step 5</span><span class="cs-bar-title" style="font-size:1rem; font-weight:700; color:white;">My Creator Check</span></div>
+        <div style="padding:18px 22px;">
+          <p class="cs-hide-print" id="cs-bandname" style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); margin-bottom:6px;"></p>
+          <label style="display:flex; gap:10px; align-items:flex-start; cursor:pointer;"><input type="checkbox" id="cs-check" style="accent-color:var(--green); width:18px; height:18px; margin-top:4px; flex-shrink:0;"> <span id="cs-istmt" style="font-family:var(--font-display); font-size:1.05rem; font-style:italic; color:var(--ink); line-height:1.5;"></span></label>
+          <div class="cs-share" style="margin-top:16px; padding-top:12px; border-top:1px dashed var(--rule); display:flex; gap:18px; flex-wrap:wrap; align-items:center;">
+            <span id="cs-share-label" style="font-size:0.86rem; font-weight:600; color:var(--ink-mid);">I'm sharing this with:</span>
+            <label id="cs-share-teacher" style="display:flex; gap:7px; align-items:center; font-size:0.88rem;"><input type="checkbox" style="accent-color:var(--navy); width:15px; height:15px;"> My teacher</label>
+            <label id="cs-share-family" style="display:flex; gap:7px; align-items:center; font-size:0.88rem;"><input type="checkbox" style="accent-color:var(--navy); width:15px; height:15px;"> My family</label>
           </div>
         </div>
       </div>
 
-      <!-- PRINT / CLEAR BUTTONS -->
-      <div class="no-print" style="display:flex; gap:12px; justify-content:flex-end; margin-bottom:20px;">
-        <button onclick="const s=document.getElementById('creator-think-sheet');s.querySelectorAll('input[type=text],textarea').forEach(i=>i.value='');s.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=false);" style="background:white; border:1px solid var(--rule); color:var(--ink-mid); font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">Clear</button>
-        <button onclick="printOnly('creator-think-sheet', false);" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Thinking Document</button>
+      <div class="cs-hide-print" style="display:flex; gap:12px; justify-content:flex-end; margin-bottom:20px;">
+        <button onclick="csClear();" style="background:white; border:1px solid var(--rule); color:var(--ink-mid); font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">Clear</button>
+        <button onclick="csPreparePrint(); printOnly('creator-think-sheet', false);" style="background:var(--navy); border:none; color:white; font-family:var(--font-body); font-size:0.85rem; font-weight:600; padding:10px 22px; border-radius:999px; cursor:pointer;">🖨 Print Creator Think Sheet</button>
       </div>
 
-      <!-- Creator Check -->
-      <div style="background:var(--navy); border-radius:var(--radius-sm); padding:24px 28px; text-align:center;">
-        <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:10px;">The Caring and Curious Creator Check</p>
-        <p style="font-family:var(--font-display); font-size:1.15rem; font-style:italic; color:white;">"Hold your own creations to the same standard you expect from everyone else's."</p>
+      <div class="cs-golden" style="background:var(--navy); border-radius:var(--radius-sm); padding:20px 28px; text-align:center;">
+        <p style="font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:8px;">The Creator's Golden Rule</p>
+        <p style="font-family:var(--font-display); font-size:1.1rem; font-style:italic; color:white;">"Hold your own creations to the same standard you expect from everyone else's."</p>
       </div>
     </div>
 
     <!-- SAMPLE STUDENT DOCUMENT -->
     <div style="background:white; border-radius:var(--radius-md); box-shadow:var(--shadow-md); overflow:hidden;">
       <div style="background:var(--navy); padding:20px 28px;">
-        <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.5);">Sample Student Document — Grade 4</span>
-        <p style="font-size:0.95rem; color:white; margin-top:8px;">What the Caring and Curious Creator looks like in practice: Maya, Grade 4, writing about ocean pollution, filling out the Student Thinking Document above.</p>
+        <span style="font-size:0.75rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.5);">Sample Creator Think Sheet — Grade 4</span>
+        <p style="font-size:0.95rem; color:white; margin-top:8px;">What the Caring and Curious Creator looks like in practice: Maya, Grade 4, writing about ocean pollution, filling out the Creator Think Sheet above.</p>
       </div>
-
-      <div style="padding:32px 36px;">
-
-        <!-- Step 0, filled -->
-        <div style="background:var(--navy); border-radius:var(--radius-sm); padding:20px 28px; margin-bottom:20px;">
-          <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:8px;">Step 0 — Start Here</p>
-          <p style="font-size:0.95rem; font-weight:600; color:white; margin-bottom:16px;">What are you making or sharing? Who is your audience?</p>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-            <div style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:6px; padding:12px 16px; font-size:0.88rem; color:white;">An article about ocean pollution and plastic waste.</div>
-            <div style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:6px; padding:12px 16px; font-size:0.88rem; color:white;">My class, and my family at home.</div>
-          </div>
+      <div style="padding:28px 32px;">
+        <div style="border:1px solid var(--rule); border-radius:var(--radius-sm); overflow:hidden; margin-bottom:16px;"><div style="background:var(--navy); padding:10px 20px; display:flex; gap:12px; align-items:center;"><span style="background:white; color:var(--navy); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:3px 10px; border-radius:999px;">Step 1</span><span style="font-size:0.95rem; font-weight:700; color:white;">Start Here</span></div><div style="padding:14px 20px; display:grid; grid-template-columns:120px 1fr 1fr; gap:12px;">
+          <div><p style="font-size:0.8rem; color:var(--ink-mid); margin-bottom:4px;">My grade:</p><div style="background:var(--cream); border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-size:0.9rem; color:var(--ink); line-height:1.6;">Grade 4</div></div>
+          <div><p style="font-size:0.8rem; color:var(--ink-mid); margin-bottom:4px;">What am I making or sharing?</p><div style="background:var(--cream); border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-size:0.9rem; color:var(--ink); line-height:1.6;">An article about ocean pollution and plastic waste.</div></div>
+          <div><p style="font-size:0.8rem; color:var(--ink-mid); margin-bottom:4px;">Who is it for?</p><div style="background:var(--cream); border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-size:0.9rem; color:var(--ink); line-height:1.6;">My class, and my family at home.</div></div></div></div>
+        <div style="border:1px solid var(--rule); border-radius:var(--radius-sm); overflow:hidden; margin-bottom:16px;"><div style="background:var(--navy); padding:10px 20px; display:flex; gap:12px; align-items:center;"><span style="background:white; color:var(--navy); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:3px 10px; border-radius:999px;">Step 2</span><span style="font-size:0.95rem; font-weight:700; color:white;">Choose Your Creator's Lens (1–3)</span></div><div style="padding:14px 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px;"><div><p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue); margin-bottom:6px;">Information Integrity</p><p style="font-size:0.86rem; color:var(--ink); margin-bottom:4px;">☑ Accuracy</p><p style="font-size:0.86rem; color:var(--ink-light); margin-bottom:4px;">☐ Expertise</p><p style="font-size:0.86rem; color:var(--ink); margin-bottom:4px;">☑ Attribution</p></div><div><p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--purple); margin-bottom:6px;">AI Transparency</p><p style="font-size:0.86rem; color:var(--ink-light); margin-bottom:4px;">☐ Disclosure</p><p style="font-size:0.86rem; color:var(--ink-light); margin-bottom:4px;">☐ Verification</p><p style="font-size:0.86rem; color:var(--ink-light); margin-bottom:4px;">☐ Originality</p></div><div><p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); margin-bottom:6px;">Ethical Communication</p><p style="font-size:0.86rem; color:var(--ink-light); margin-bottom:4px;">☐ Honesty</p><p style="font-size:0.86rem; color:var(--ink); margin-bottom:4px;">☑ Perspective</p><p style="font-size:0.86rem; color:var(--ink-light); margin-bottom:4px;">☐ Permission</p></div></div></div>
+        <div style="border:1px solid var(--rule); border-radius:var(--radius-sm); overflow:hidden; margin-bottom:16px;"><div style="background:var(--navy); padding:10px 20px; display:flex; gap:12px; align-items:center;"><span style="background:white; color:var(--navy); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:3px 10px; border-radius:999px;">Step 3</span><span style="font-size:0.95rem; font-weight:700; color:white;">Apply Your Lens</span></div><div style="padding:14px 20px;"><div style="margin-bottom:14px;"><p style="font-size:0.85rem; font-weight:700; color:var(--navy);">Accuracy</p><p style="font-size:0.86rem; color:var(--ink-mid); margin-bottom:6px;">Which fact did I check, and where?</p><div style="background:var(--cream); border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-size:0.9rem; color:var(--ink); line-height:1.6;">I read a NOAA article that said 8 million tons of plastic enter the ocean every year. I checked it with a National Geographic video too.</div></div><div style="margin-bottom:14px;"><p style="font-size:0.85rem; font-weight:700; color:var(--navy);">Attribution</p><p style="font-size:0.86rem; color:var(--ink-mid); margin-bottom:6px;">What sources did I use, and did I give credit to each one?</p><div style="background:var(--cream); border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-size:0.9rem; color:var(--ink); line-height:1.6;">The NOAA article and the National Geographic video. I listed both at the end. The picture is my drawing. Picture by Maya R. — I am the source!</div></div><div style="margin-bottom:14px;"><p style="font-size:0.85rem; font-weight:700; color:var(--navy);">Perspective</p><p style="font-size:0.86rem; color:var(--ink-mid); margin-bottom:6px;">Whose point of view did I include, and whose is missing?</p><div style="background:var(--cream); border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-size:0.9rem; color:var(--ink); line-height:1.6;">I included sea animals and people who care about the ocean. Maybe people who make plastic things would say it's hard to stop. I didn't include that side.</div></div></div></div>
+        <div style="border:1px solid var(--rule); border-radius:var(--radius-sm); overflow:hidden; margin-bottom:16px;"><div style="background:var(--navy); padding:10px 20px; display:flex; gap:12px; align-items:center;"><span style="background:white; color:var(--navy); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:3px 10px; border-radius:999px;">Step 4</span><span style="font-size:0.95rem; font-weight:700; color:white;">How I Made It</span></div><div style="padding:14px 20px;"><p style="font-size:0.9rem; color:var(--ink);">☑ <strong>Level 1 — No AI.</strong> All my own work. I used my own words, and the picture is my drawing.</p></div></div>
+        <div style="background:var(--green-pale); border-radius:var(--radius-sm); padding:16px 22px;">
+          <p style="font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); margin-bottom:6px;">✅ Step 5 — My Creator Check</p>
+          <p style="font-size:0.95rem; font-style:italic; color:var(--ink); margin-bottom:8px;">☑ "When I create or share something, I check my facts, own my opinions, and am honest about how I made it."</p>
+          <p style="font-size:0.86rem; color:var(--ink-mid);">I'm sharing this with: ☑ My teacher &nbsp; ☑ My family</p>
         </div>
-
-        <!-- Step 1, filled -->
-        <div style="border:1px solid var(--rule); border-radius:var(--radius-sm); padding:24px 28px; margin-bottom:20px;">
-          <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:12px;">Step 1 — Choose Your Creator's Lens Focus (Select 1–3)</p>
-          <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;">
-            <div>
-              <p style="font-size:0.78rem; font-weight:700; color:var(--blue); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Information Integrity</p>
-              <p style="font-size:0.85rem; color:var(--ink); margin-bottom:6px;">☑ Accuracy</p>
-              <p style="font-size:0.85rem; color:var(--ink-light); margin-bottom:6px;">☐ Expertise</p>
-              <p style="font-size:0.85rem; color:var(--ink);">☑ Attribution</p>
-            </div>
-            <div>
-              <p style="font-size:0.78rem; font-weight:700; color:var(--purple); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">AI Transparency</p>
-              <p style="font-size:0.85rem; color:var(--ink); margin-bottom:6px;">☑ Disclosure</p>
-              <p style="font-size:0.85rem; color:var(--ink-light); margin-bottom:6px;">☐ Verification</p>
-              <p style="font-size:0.85rem; color:var(--ink-light);">☐ Originality</p>
-            </div>
-            <div>
-              <p style="font-size:0.78rem; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Ethical Communication</p>
-              <p style="font-size:0.85rem; color:var(--ink-light); margin-bottom:6px;">☐ Honesty</p>
-              <p style="font-size:0.85rem; color:var(--ink); margin-bottom:6px;">☑ Perspective</p>
-              <p style="font-size:0.85rem; color:var(--ink-light);">☐ Copyright</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 2, filled -->
-        <div style="border:1px solid var(--rule); border-radius:var(--radius-sm); padding:24px 28px; margin-bottom:20px;">
-          <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:16px;">Step 2 — Apply the Lens <span style="font-weight:400; text-transform:none; letter-spacing:0;">(This is the work)</span></p>
-          <div style="display:grid; gap:16px;">
-            <div>
-              <p style="font-size:0.88rem; color:var(--ink-mid); margin-bottom:8px;">What is my claim or main message?</p>
-              <div style="background:var(--cream); border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-size:0.9rem; color:var(--ink); line-height:1.6;">Ocean pollution from plastic is hurting sea animals like sea turtles and fish. We need to use less plastic.</div>
-            </div>
-            <div>
-              <p style="font-size:0.88rem; color:var(--ink-mid); margin-bottom:8px;">What evidence supports it?</p>
-              <div style="background:var(--cream); border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-size:0.9rem; color:var(--ink); line-height:1.6;">I read a NOAA article that said 8 million tons of plastic enter the ocean every year. I also found a video from National Geographic.</div>
-            </div>
-            <div>
-              <p style="font-size:0.88rem; color:var(--ink-mid); margin-bottom:8px;">Did I use AI? If so, how — and what did I verify?</p>
-              <div style="background:var(--cream); border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-size:0.9rem; color:var(--ink); line-height:1.6;">No AI. I used my own words. The picture is my drawing. Picture by Maya R. — I am the source!</div>
-            </div>
-            <div>
-              <p style="font-size:0.88rem; color:var(--ink-mid); margin-bottom:8px;">Whose perspective might be missing?</p>
-              <div style="background:var(--cream); border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-size:0.9rem; color:var(--ink); line-height:1.6;">Maybe people who make plastic things. They might say it's hard to stop. I didn't include that side.</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Creator Check -->
-        <div style="background:var(--green-pale); border-radius:var(--radius-sm); padding:18px 24px; text-align:center;">
-          <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--green); margin-bottom:6px;">✅ The Caring and Curious Creator Check</p>
-          <p style="font-size:0.92rem; font-style:italic; color:var(--ink);">"I checked my facts and said where they came from. A caring and curious thinker would trust this."</p>
-        </div>
-
       </div>
     </div>
 
@@ -6128,6 +6178,89 @@ p { margin-bottom: 16px; line-height: 1.75; }
     s.classList.toggle('ts-no-fam', !s.querySelector('.ts-fam:checked'));
   }
   document.addEventListener('DOMContentLoaded', tsRender);
+
+
+  /* ---------- Creator Think Sheet ---------- */
+  var CS_L = {"accuracy": {"k2": ["Is it true?", "People believe what we tell them, so we want it to be true.", "Check one fact with a grown-up or a book.", "What did we check to make sure it's true?"], "b35": ["My facts are correct.", "If one fact is wrong, people may stop trusting the rest of your work.", "Pick your most important fact and check it in a second source.", "Which fact did I check, and where?"], "b68": ["I can back up my claims.", "Your audience can't ask you questions, so your evidence has to do the explaining.", "Underline each claim and make sure a reliable source supports it.", "What is my main claim, and what evidence supports it?"], "b912": ["My evidence fits my claims.", "Accurate facts can still mislead if a claim goes further than the evidence.", "Check that each claim says only as much as your evidence supports, and no more.", "Where might my claims go further than my evidence?"]}, "expertise": {"k2": ["Who did I learn from?", "Some people know a lot about a topic, and we can learn from them.", "Name the person or book you learned from.", "Who or what helped us learn about this?"], "b35": ["My sources know the topic.", "Someone who studies a topic usually knows more than someone who just has an opinion.", "For each source, ask: how does this person or group know about this?", "Why should my audience trust my sources?"], "b68": ["Who am I to speak on this?", "Knowing the limits of what you know is part of being trustworthy.", "Name what you know well, and where you're relying on people who know more.", "What do I know firsthand, and where am I relying on experts?"], "b912": ["Expertise and its limits.", "Your audience deserves to know what kind of authority your work has, and what it doesn't.", "State your own position and limits honestly, and choose sources whose expertise matches each claim.", "What expertise do my sources and I bring, and what are our limits?"]}, "attribution": {"k2": ["I say where it came from.", "Saying where an idea came from is a way of saying thank you.", "Write or say: \"I learned this from ___.\"", "Where did we learn this?"], "b35": ["I give credit.", "Giving credit is honest, and it helps your audience find the source too.", "List every source you used, including pictures.", "What sources did I use, and did I give credit to each one?"], "b68": ["Credit for ideas, words, and images.", "Using someone's idea without credit is still taking it, even if you changed the words.", "Mark everything that came from someone else, including ideas you put in your own words.", "Which ideas, words, or images came from someone else, and how did I credit them?"], "b912": ["Clear, specific credit.", "Specific credit lets your audience check your work and see how your ideas build on others'.", "Use a consistent citation format, and make sure every credit points to an exact source.", "Could my audience find every source I used from my credits?"]}, "disclosure": {"k2": ["Did a computer help?", "People like to know how something was made.", "Tell how you made it: \"I drew it,\" \"I wrote it,\" or \"A computer helped.\"", "How did we make this?"], "b35": ["I tell how I made it.", "If a tool helped you, saying so keeps your audience's trust.", "Add a line at the end: \"I made this by ___. ___ helped me.\"", "What tools helped me, and did I tell my audience?"], "b68": ["I'm open about AI use.", "An audience that finds out about AI use later can lose trust in everything you made.", "Write a short note naming any AI tools and what they did.", "What did AI do in my work, and where did I say so?"], "b912": ["Specific AI disclosure.", "Specific disclosure separates your thinking from the tool's, and builds trust that lasts.", "Write a disclosure naming the tool, what it did, what you verified, and what is your own thinking.", "What does my disclosure say about how AI was used, what I verified, and what is mine?"]}, "verification": {"k2": ["We double-check.", "Computers and people can both make mistakes.", "Ask a grown-up to help you check anything a computer told you.", "What did we double-check?"], "b35": ["I check what tools tell me.", "AI can sound sure and still be wrong.", "Check anything AI told you against a book or a trusted website.", "What did I check, and was it right?"], "b68": ["I verify AI output.", "AI can make up facts and sources, and it can go along with mistakes in your question.", "Check every AI fact and source you plan to use, and make sure each source really exists.", "Which AI output did I verify, and what did I find?"], "b912": ["Nothing unverified goes out.", "Once you publish it, you are responsible for it, no matter what tool produced it.", "Trace each AI-supported claim to an original source before it goes into your work.", "What did I verify, and what did I cut because I couldn't?"]}, "originality": {"k2": ["This is my idea.", "Your own ideas are special because they come from you.", "Point to the part that is all yours.", "What part of this is our own idea?"], "b35": ["My own thinking shows.", "Your audience wants to hear what you think, not just what you found.", "Add at least one sentence that says what you think, and why.", "Where does my own thinking show in this work?"], "b68": ["Mine, my sources', or AI's?", "Knowing which ideas are yours helps you grow as a thinker.", "Highlight your own thinking in one color, and ideas from sources or AI in another.", "What part of this is my original thinking?"], "b912": ["My voice and my contribution.", "Original contribution is what makes your work worth reading, and with AI, it is also what makes the work yours.", "Name the insight, argument, or choice in this work that only you could have made.", "What is my original contribution here?"]}, "honesty": {"k2": ["We tell the truth.", "Telling the truth helps people trust us.", "Check that everything we made says what really happened.", "Is everything in our work true?"], "b35": ["Facts and opinions.", "Your audience should know what you know for sure, and what you think.", "Mark your opinions with words like \"I think\" or \"I believe.\"", "Where did I share facts, and where did I share my opinion?"], "b68": ["Nothing misleading.", "You can mislead without lying, by leaving things out or exaggerating.", "Reread your work the way a skeptic would. Is anything exaggerated, cropped, or out of context?", "Could anything in my work mislead someone, even by accident?"], "b912": ["Honest about uncertainty.", "Being honest about what you don't know makes what you do know more believable.", "Name the uncertainty, limits, or counterevidence a careful reader should know about.", "What uncertainty or limits should my audience know about?"]}, "perspective": {"k2": ["Who else?", "Different people can feel different ways about the same thing.", "Ask: \"How might someone else feel about this?\"", "Who might see this differently?"], "b35": ["Other points of view.", "Including other views makes your work fairer and more complete.", "Name one person or group who might see your topic differently.", "Whose point of view did I include, and whose is missing?"], "b68": ["Missing voices.", "Who gets left out of a story shapes what the audience believes.", "List the people affected by your topic, and check whether their voices appear.", "Whose perspective might be missing, and would it change my message?"], "b912": ["Fair to other views.", "Representing other views fairly, even ones you disagree with, makes your own argument stronger and more trustworthy.", "Describe an opposing view in a way its supporters would recognize as fair.", "Have I represented other perspectives in a way their supporters would accept as fair?"]}, "permission": {"k2": ["Is it okay to use?", "Pictures and words belong to the people who made them, and people get to decide how their picture is used.", "Use your own pictures and words, or ask a grown-up if something is okay to use. Ask before using a picture of a person.", "Are all the pictures and words ours, or okay to use?"], "b35": ["Free to use, and fair to people.", "Some work is free to use, like old work in the public domain or work shared with a Creative Commons license. People who appear in your work deserve a say, too.", "Look for public domain or Creative Commons images, still give credit, and ask before including a photo of a classmate.", "Do I have permission for every image, and for every person shown?"], "b68": ["License and consent.", "Giving credit and having permission are different things. A license tells you what you may do with someone's work; a person's consent tells you whether you may show them.", "Check the Creative Commons license on each image (BY, NC, SA, ND) and follow it. Never include a fake or altered image of a real person.", "What license or permission covers each thing I used, and did everyone shown agree?"], "b912": ["Rights, fair use, and my own license.", "Fair use is a judgment, not a loophole, and your own work deserves protection too. Under current U.S. Copyright Office guidance, purely AI-generated material is not protected by copyright, which requires human authorship.", "For each borrowed element, name your basis for using it: permission, a license, the public domain, or a fair use judgment. Then decide how you will license your own work.", "What is my basis for using each borrowed element, and how will I share my own work?"]}};
+  var CS_I = {"k2": "When I create or share something, I tell the truth and give credit to others and myself.", "b35": "When I create or share something, I check my facts, own my opinions, and am honest about how I made it.", "b68": "I hold my own work to the same standard I hold everyone else's.", "b912": "Every time I add my voice to the world, I ask: would a caring and curious thinker trust what I just made?"};
+  var CS_B = {"k2": "The Emerging Creator", "b35": "The Developing Creator", "b68": "The Reflective Creator", "b912": "The Responsible Creator"};
+  var csStore = {};
+  function csBand(g) { if (g === '') return ''; if (g === 'k' || g === '1' || g === '2') return 'k2'; var n = parseInt(g, 10); return n <= 5 ? 'b35' : (n <= 8 ? 'b68' : 'b912'); }
+  function csEsc(s) { return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  var CS_TA = 'class="cs-ta" style="width:100%; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; font-family:var(--font-body); font-size:0.9rem; color:var(--ink); resize:vertical; line-height:1.5;"';
+  function csRender() {
+    var s = document.getElementById('creator-think-sheet'); if (!s) return;
+    s.querySelectorAll('[data-cstore]').forEach(function(t){ csStore[t.getAttribute('data-cstore')] = t.value; });
+    var band = csBand(document.getElementById('cs-grade').value);
+    var b = band || 'b35';
+    var k2 = band === 'k2';
+    s.classList.toggle('cs-k2', k2);
+    document.getElementById('cs-k2-banner').style.display = k2 ? 'block' : 'none';
+    document.getElementById('cs-grownup').style.display = k2 ? 'block' : 'none';
+    document.getElementById('cs-ai-k2').style.display = k2 ? 'block' : 'none';
+    document.getElementById('cs-ai-std').style.display = k2 ? 'none' : 'block';
+    s.querySelector('.cs-q-make').textContent = k2 ? 'What are we making?' : 'What am I making or sharing?';
+    s.querySelector('.cs-q-aud').textContent = k2 ? 'Who will see it?' : 'Who is it for?';
+    document.getElementById('cs-istmt').textContent = '"' + CS_I[b] + '"';
+    document.getElementById('cs-bandname').textContent = band ? CS_B[band] : '';
+    document.getElementById('cs-share-label').textContent = k2 ? 'We made this together, and we will share it with:' : "I'm sharing this with:";
+    document.getElementById('cs-share-teacher').lastChild.textContent = k2 ? ' Our teacher' : ' My teacher';
+    document.getElementById('cs-share-family').lastChild.textContent = k2 ? ' Our family' : ' My family';
+    var picks = [];
+    s.querySelectorAll('.cs-lens-item').forEach(function(it){
+      var k = it.getAttribute('data-lens');
+      it.querySelector('.cs-desc').textContent = CS_L[k][b][0];
+      var on = it.querySelector('.cs-pick').checked;
+      it.classList.toggle('cs-picked', on);
+      if (on) picks.push(k);
+    });
+    s.classList.toggle('cs-has-picks', picks.length > 0);
+    document.getElementById('cs-many').style.display = picks.length > 3 ? 'block' : 'none';
+    var html = '';
+    var list = picks.length ? picks : ['_1','_2','_3'];
+    list.forEach(function(k, i){
+      var mb = i < list.length - 1 ? 'margin-bottom:18px;' : '';
+      if (k.charAt(0) === '_') {
+        html += '<div style="' + mb + '"><p style="font-size:0.85rem; font-weight:600; color:var(--ink-mid); margin-bottom:6px;">Lens: ______________________ &nbsp; What did I check or change?</p><textarea rows="2" data-cstore="a' + k + '" ' + CS_TA + '>' + csEsc(csStore['a' + k] || '') + '</textarea></div>';
+        return;
+      }
+      var d = CS_L[k][b];
+      html += '<div style="' + mb + '"><p style="font-size:0.9rem; font-weight:700; color:var(--navy); margin-bottom:4px;">' + k.charAt(0).toUpperCase() + k.slice(1) + '</p>' +
+        '<div class="cs-hide-print" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:8px;">' +
+        '<p style="font-size:0.8rem; color:var(--ink-mid); line-height:1.55; background:var(--cream); border-radius:6px; padding:8px 10px;"><strong>Why it matters:</strong> ' + csEsc(d[1]) + '</p>' +
+        '<p style="font-size:0.8rem; color:var(--ink-mid); line-height:1.55; background:var(--cream); border-radius:6px; padding:8px 10px;"><strong>Learner Move:</strong> ' + csEsc(d[2]) + '</p></div>' +
+        '<p class="cs-question" style="font-size:0.9rem; color:var(--ink); margin-bottom:6px;">' + csEsc(d[3]) + '</p>' +
+        '<textarea rows="2" data-cstore="a-' + k + '" ' + CS_TA + '>' + csEsc(csStore['a-' + k] || '') + '</textarea></div>';
+    });
+    document.getElementById('cs-apply').innerHTML = html;
+  }
+  function csClear() {
+    var s = document.getElementById('creator-think-sheet');
+    s.querySelectorAll('textarea').forEach(function(i){ i.value=''; });
+    s.querySelectorAll('input[type=checkbox], input[type=radio]').forEach(function(c){ c.checked=false; });
+    document.getElementById('cs-grade').value = '';
+    csStore = {};
+    csRender();
+  }
+  function csPreparePrint() {
+    csRender();
+    var s = document.getElementById('creator-think-sheet');
+    s.querySelectorAll('textarea').forEach(function(ta){
+      var v = ta.nextElementSibling;
+      if (!v || !v.classList.contains('cs-print-val')) { v = document.createElement('div'); v.className = 'cs-print-val'; ta.parentNode.insertBefore(v, ta.nextSibling); }
+      v.textContent = ta.value;
+    });
+    var sel = document.getElementById('cs-grade');
+    s.querySelector('.cs-print-grade').textContent = sel.value ? sel.options[sel.selectedIndex].text : '';
+    var anyPick = !!s.querySelector('.cs-pick:checked');
+    s.querySelectorAll('.cs-lenscol').forEach(function(c){ c.classList.toggle('cs-col-empty', anyPick && !c.querySelector('.cs-pick:checked')); });
+    ['cs-ai', 'cs-ai-k2'].forEach(function(nm){
+      var rs = s.querySelectorAll('input[name="' + nm + '"]');
+      var any = Array.prototype.some.call(rs, function(r){ return r.checked; });
+      rs.forEach(function(r){ r.closest('label').classList.toggle('cs-ai-off', any && !r.checked); });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', csRender);
 
   function printOnly(id, compact) {
     var el = document.getElementById(id);
